@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D10B9C927ED3C3900DCD022 /* ClassTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D10B9C827ED3C3900DCD022 /* ClassTableCell.swift */; };
+		1D10B9CB27ED3C9600DCD022 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D10B9CA27ED3C9600DCD022 /* Class.swift */; };
 		1D67A3D727ED2FEB00A2FD7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3D627ED2FEB00A2FD7A /* AppDelegate.swift */; };
 		1D67A3D927ED2FEB00A2FD7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3D827ED2FEB00A2FD7A /* SceneDelegate.swift */; };
 		1D67A3DB27ED2FEB00A2FD7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3DA27ED2FEB00A2FD7A /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D10B9C827ED3C3900DCD022 /* ClassTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableCell.swift; sourceTree = "<group>"; };
+		1D10B9CA27ED3C9600DCD022 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		1D67A3D327ED2FEB00A2FD7A /* SchoolTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D67A3D627ED2FEB00A2FD7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D67A3D827ED2FEB00A2FD7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,9 +105,11 @@
 		1D67A3D527ED2FEB00A2FD7A /* SchoolTracker */ = {
 			isa = PBXGroup;
 			children = (
+				1D67A40B27ED395500A2FD7A /* Views */,
+				1D67A40A27ED394A00A2FD7A /* Models */,
+				1D67A40927ED393F00A2FD7A /* Controllers */,
 				1D67A3D627ED2FEB00A2FD7A /* AppDelegate.swift */,
 				1D67A3D827ED2FEB00A2FD7A /* SceneDelegate.swift */,
-				1D67A3DA27ED2FEB00A2FD7A /* ViewController.swift */,
 				1D67A3DC27ED2FEB00A2FD7A /* Main.storyboard */,
 				1D67A3E227ED2FED00A2FD7A /* Assets.xcassets */,
 				1D67A3E427ED2FED00A2FD7A /* LaunchScreen.storyboard */,
@@ -128,6 +134,30 @@
 				1D67A3FC27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift */,
 			);
 			path = SchoolTrackerUITests;
+			sourceTree = "<group>";
+		};
+		1D67A40927ED393F00A2FD7A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D67A3DA27ED2FEB00A2FD7A /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1D67A40A27ED394A00A2FD7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D10B9CA27ED3C9600DCD022 /* Class.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1D67A40B27ED395500A2FD7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D10B9C827ED3C3900DCD022 /* ClassTableCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D10B9CB27ED3C9600DCD022 /* Class.swift in Sources */,
 				1D67A3DB27ED2FEB00A2FD7A /* ViewController.swift in Sources */,
 				1D67A3D727ED2FEB00A2FD7A /* AppDelegate.swift in Sources */,
 				1D67A3E127ED2FEB00A2FD7A /* SchoolTracker.xcdatamodeld in Sources */,
+				1D10B9C927ED3C3900DCD022 /* ClassTableCell.swift in Sources */,
 				1D67A3D927ED2FEB00A2FD7A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
