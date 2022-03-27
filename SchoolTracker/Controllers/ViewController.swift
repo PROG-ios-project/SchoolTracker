@@ -21,9 +21,15 @@ class ViewController: UIViewController {
         return controller
     }()
     
+    private var searchText: String = ""
+    
     var courses: [Course] = []
     
-    var displayedCourses: [Course] = []
+    var displayedCourses: [Course]{
+        get{
+            return searchText.isEmpty ? courses.filter({$0.name.contains(searchText)}) : courses
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -38,8 +44,10 @@ class ViewController: UIViewController {
         
         self.navigationItem.searchController = searchController
         
+        
+        //Manually add courses
         for i in 0...5{
-            var newCourse = Course()
+            let newCourse = Course()
             newCourse.name = "Example \(i)"
             courses.append(newCourse)
         }
@@ -99,7 +107,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension ViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
-        
+        searchText = searchController.searchBar.text ?? ""
     }
     
     
