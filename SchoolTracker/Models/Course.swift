@@ -9,14 +9,15 @@ import Foundation
 class Course{
     var name: String = ""
     var code: String = ""
-    var description: String?
+    var grade: Double = 0.0
+    var isComplete: Bool = false
     var endDate: Date = Date()
     
     init(){
         
     }
     
-    init(name: String, code: String, endDate: Date, description: String?){
+    init(name: String, code: String, endDate: Date){
         
     }
 }
