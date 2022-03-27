@@ -47,7 +47,9 @@
                             <constraint firstItem="lF1-Qc-ha8" firstAttribute="leading" secondItem="jIQ-tZ-Kc2" secondAttribute="leading" constant="10" id="ttH-OS-cqh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="School Tracking" id="ewE-by-6R3"/>
+                    <navigationItem key="navigationItem" title="School Tracking" id="ewE-by-6R3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zeg-Uq-O0t"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lF1-Qc-ha8" id="HIE-EG-tH7"/>
                     </connections>

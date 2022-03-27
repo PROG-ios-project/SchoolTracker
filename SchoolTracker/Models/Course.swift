@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Class{
+class Course{
     var name: String = ""
     var code: String = ""
     var description: String?

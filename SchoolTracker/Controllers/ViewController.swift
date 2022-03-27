@@ -21,7 +21,10 @@ class ViewController: UIViewController {
         return controller
     }()
     
-    var classes: [Class] = []
+    var courses: [Course] = []
+    
+    var displayedCourses: [Course] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,11 @@ class ViewController: UIViewController {
         
         self.navigationItem.searchController = searchController
         
-        classes = [Class].init(repeating: Class(), count: 5)
+        for i in 0...5{
+            var newCourse = Course()
+            newCourse.name = "Example \(i)"
+            courses.append(newCourse)
+        }
         
         tableView.backgroundColor = .clear
         tableView.delegate = self
@@ -59,7 +66,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return 1
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return classes.count
+        return courses.count
     }
  
     
@@ -79,7 +86,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClassTableCell", for: indexPath) as? ClassTableCell else{
             return UITableViewCell()
         }
-        cell.start()
+        cell.start(course: courses[indexPath.section])
         return cell
     }
     
