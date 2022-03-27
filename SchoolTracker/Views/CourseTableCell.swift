@@ -22,7 +22,7 @@ class ClassTableCell: UITableViewCell{
         
         
         
-        
+        nameLbl.removeFromSuperview()
     }
     
     func start(course: Course){
