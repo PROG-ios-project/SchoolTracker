@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         
-        self.view.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        self.view.backgroundColor = .white
         
         //Set up large title for navigation controller
         self.navigationController?.navigationBar.prefersLargeTitles = true

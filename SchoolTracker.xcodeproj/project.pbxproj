@@ -19,6 +19,8 @@
 		1D67A3F127ED2FED00A2FD7A /* SchoolTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3F027ED2FED00A2FD7A /* SchoolTrackerTests.swift */; };
 		1D67A3FB27ED2FED00A2FD7A /* SchoolTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3FA27ED2FED00A2FD7A /* SchoolTrackerUITests.swift */; };
 		1D67A3FD27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3FC27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift */; };
+		1D928FCD27FD0D2100F388E0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */; };
+		1D928FCF27FD139C00F388E0 /* AddCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D928FCE27FD139C00F388E0 /* AddCourseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		1D67A3F627ED2FED00A2FD7A /* SchoolTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D67A3FA27ED2FED00A2FD7A /* SchoolTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTrackerUITests.swift; sourceTree = "<group>"; };
 		1D67A3FC27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		1D928FCE27FD139C00F388E0 /* AddCourseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				1D67A3DA27ED2FEB00A2FD7A /* ViewController.swift */,
+				1D928FCE27FD139C00F388E0 /* AddCourseController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				1D10B9CA27ED3C9600DCD022 /* Course.swift */,
+				1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,8 +299,10 @@
 			files = (
 				1D10B9CB27ED3C9600DCD022 /* Course.swift in Sources */,
 				1D67A3DB27ED2FEB00A2FD7A /* ViewController.swift in Sources */,
+				1D928FCF27FD139C00F388E0 /* AddCourseController.swift in Sources */,
 				1D67A3D727ED2FEB00A2FD7A /* AppDelegate.swift in Sources */,
 				1D67A3E127ED2FEB00A2FD7A /* SchoolTracker.xcdatamodeld in Sources */,
+				1D928FCD27FD0D2100F388E0 /* NotificationManager.swift in Sources */,
 				1D10B9C927ED3C3900DCD022 /* CourseTableCell.swift in Sources */,
 				1D67A3D927ED2FEB00A2FD7A /* SceneDelegate.swift in Sources */,
 			);

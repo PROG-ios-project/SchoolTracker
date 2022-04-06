@@ -28,7 +28,7 @@ class ClassTableCell: UITableViewCell{
     func start(course: Course){
         self.course = course
         
-        self.contentView.backgroundColor = .white
+        self.contentView.backgroundColor = .init(white: 0.95, alpha: 1)
         self.layer.cornerRadius = 20
         
         self.contentView.layer.cornerRadius = 20
