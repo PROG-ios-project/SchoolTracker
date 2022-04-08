@@ -9,8 +9,8 @@ import Foundation
 class Course{
     var name: String = ""
     var code: String = ""
-    var grade: Double = 0.0
-    var isComplete: Bool = false
+    private var grade: Double = 0.0
+    private var isComplete: Bool = false
     var endDate: Date = Date()
     
     init(){

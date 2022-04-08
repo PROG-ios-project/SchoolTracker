@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="School Tracking" id="ewE-by-6R3">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zeg-Uq-O0t">
                             <connections>
-                                <segue destination="3CX-gV-ffY" kind="popoverPresentation" popoverAnchorBarButtonItem="Zeg-Uq-O0t" id="tXI-kR-YWn">
+                                <segue destination="3CX-gV-ffY" kind="popoverPresentation" identifier="addCourse" popoverAnchorBarButtonItem="Zeg-Uq-O0t" id="tXI-kR-YWn">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -67,7 +67,7 @@
         <!--Add Course Controller-->
         <scene sceneID="91h-ly-mPL">
             <objects>
-                <viewController id="3CX-gV-ffY" customClass="AddCourseController" sceneMemberID="viewController">
+                <viewController id="3CX-gV-ffY" customClass="AddCourseController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxh-p2-T8j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,7 +128,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="IuD-8X-q0e">
-                                        <rect key="frame" x="0.0" y="288" width="439" height="300"/>
+                                        <rect key="frame" x="0.0" y="288" width="374" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="7Zt-VI-gUg"/>
                                         </constraints>
@@ -168,6 +168,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelAction:" destination="3CX-gV-ffY" eventType="touchUpInside" id="uNT-tM-e2H"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IB2-tb-ys5">
                                 <rect key="frame" x="347.5" y="5" width="61.5" height="32.5"/>
@@ -181,6 +184,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveAction:" destination="3CX-gV-ffY" eventType="touchUpInside" id="gbg-Ri-tll"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XJb-2o-PDu"/>
@@ -197,6 +203,11 @@
                             <constraint firstItem="h3v-Im-Nrl" firstAttribute="leading" secondItem="XJb-2o-PDu" secondAttribute="leading" priority="999" constant="20" id="zMY-cu-ZFz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="codeField" destination="BIp-fR-edq" id="hdl-0w-UBq"/>
+                        <outlet property="datePicker" destination="IuD-8X-q0e" id="dSf-YP-IZg"/>
+                        <outlet property="nameField" destination="pTE-8n-Djv" id="Lzw-W0-rYW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XU-7X-uDm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     
     var courses: [Course] = []
     
+    //Retruns courses to be displayed in list
     var displayedCourses: [Course]{
         get{
             return searchText.isEmpty ? courses.filter({$0.name.contains(searchText)}) : courses
@@ -44,14 +45,7 @@ class ViewController: UIViewController {
         
         self.navigationItem.searchController = searchController
         
-        
-        //Manually add courses
-        for i in 0...5{
-            let newCourse = Course()
-            newCourse.name = "Example \(i)"
-            courses.append(newCourse)
-        }
-        
+        //Setting up table view
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
@@ -63,12 +57,17 @@ class ViewController: UIViewController {
             tableView.sectionHeaderTopPadding = 0
         }
     }
-
+            
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addCourse"{
+            (segue.destination as? AddCourseController)?.delegate = self
+        }
+    }
     
 
 }
 
-
+//Table view management
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -103,11 +102,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 
 }
 
+extension ViewController: AddCourseDelegate{
+    func willSaveCourse(course: Course) {
+        self.courses.append(course)
+        tableView.reloadData()
+    }
+    
+    
+}
 
 extension ViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         searchText = searchController.searchBar.text ?? ""
     }
-    
-    
 }
