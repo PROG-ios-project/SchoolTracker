@@ -28,7 +28,7 @@
         <!--School Tracking-->
         <scene sceneID="nXj-ac-IQ4">
             <objects>
-                <viewController id="c14-Wo-dHd" customClass="ViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c14-Wo-dHd" customClass="CourseListController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ib-Mi-r4T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

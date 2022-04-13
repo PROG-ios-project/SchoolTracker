@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CourseListController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
 }
 
 //Table view management
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
+extension CourseListController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -102,7 +102,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 
 }
 
-extension ViewController: AddCourseDelegate{
+extension CourseListController: AddCourseDelegate{
     func willSaveCourse(course: Course) {
         self.courses.append(course)
         tableView.reloadData()
@@ -111,7 +111,7 @@ extension ViewController: AddCourseDelegate{
     
 }
 
-extension ViewController: UISearchResultsUpdating{
+extension CourseListController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         searchText = searchController.searchBar.text ?? ""
     }
