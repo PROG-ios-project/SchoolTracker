@@ -21,6 +21,11 @@
 		1D67A3FD27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3FC27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift */; };
 		1D928FCD27FD0D2100F388E0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */; };
 		1D928FCF27FD139C00F388E0 /* AddCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D928FCE27FD139C00F388E0 /* AddCourseController.swift */; };
+		B7220ED2280A01DC00ED0F3B /* SchoolDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = B7220ED1280A01DC00ED0F3B /* SchoolDatabase.db */; };
+		B7220ED4280A085700ED0F3B /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED3280A085700ED0F3B /* MainMenuViewController.swift */; };
+		B7220ED6280A2B9600ED0F3B /* SchoolDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED5280A2B9600ED0F3B /* SchoolDB.swift */; };
+		B7220ED8280A31F500ED0F3B /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED7280A31F500ED0F3B /* Semester.swift */; };
+		B7220EDA280A321A00ED0F3B /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED9280A321A00ED0F3B /* Assessment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		1D67A3FC27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		1D928FCE27FD139C00F388E0 /* AddCourseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseController.swift; sourceTree = "<group>"; };
+		B7220ED1280A01DC00ED0F3B /* SchoolDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = SchoolDatabase.db; path = ../../../../SchoolDatabase.db; sourceTree = "<group>"; };
+		B7220ED3280A085700ED0F3B /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		B7220ED5280A2B9600ED0F3B /* SchoolDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDB.swift; sourceTree = "<group>"; };
+		B7220ED7280A31F500ED0F3B /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
+		B7220ED9280A321A00ED0F3B /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,7 @@
 		1D67A3D527ED2FEB00A2FD7A /* SchoolTracker */ = {
 			isa = PBXGroup;
 			children = (
+				B7220ED0280A016F00ED0F3B /* Database */,
 				1D67A40B27ED395500A2FD7A /* Views */,
 				1D67A40A27ED394A00A2FD7A /* Models */,
 				1D67A40927ED393F00A2FD7A /* Controllers */,
@@ -145,6 +156,7 @@
 			children = (
 				1D67A3DA27ED2FEB00A2FD7A /* CourseListController.swift */,
 				1D928FCE27FD139C00F388E0 /* AddCourseController.swift */,
+				B7220ED3280A085700ED0F3B /* MainMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -154,6 +166,8 @@
 			children = (
 				1D10B9CA27ED3C9600DCD022 /* Course.swift */,
 				1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */,
+				B7220ED7280A31F500ED0F3B /* Semester.swift */,
+				B7220ED9280A321A00ED0F3B /* Assessment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +178,15 @@
 				1D10B9C827ED3C3900DCD022 /* CourseTableCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B7220ED0280A016F00ED0F3B /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				B7220ED1280A01DC00ED0F3B /* SchoolDatabase.db */,
+				B7220ED5280A2B9600ED0F3B /* SchoolDB.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +295,7 @@
 			files = (
 				1D67A3E627ED2FED00A2FD7A /* LaunchScreen.storyboard in Resources */,
 				1D67A3E327ED2FED00A2FD7A /* Assets.xcassets in Resources */,
+				B7220ED2280A01DC00ED0F3B /* SchoolDatabase.db in Resources */,
 				1D67A3DE27ED2FEB00A2FD7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,12 +321,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7220ED4280A085700ED0F3B /* MainMenuViewController.swift in Sources */,
+				B7220ED8280A31F500ED0F3B /* Semester.swift in Sources */,
 				1D10B9CB27ED3C9600DCD022 /* Course.swift in Sources */,
 				1D67A3DB27ED2FEB00A2FD7A /* CourseListController.swift in Sources */,
 				1D928FCF27FD139C00F388E0 /* AddCourseController.swift in Sources */,
 				1D67A3D727ED2FEB00A2FD7A /* AppDelegate.swift in Sources */,
 				1D67A3E127ED2FEB00A2FD7A /* SchoolTracker.xcdatamodeld in Sources */,
 				1D928FCD27FD0D2100F388E0 /* NotificationManager.swift in Sources */,
+				B7220ED6280A2B9600ED0F3B /* SchoolDB.swift in Sources */,
+				B7220EDA280A321A00ED0F3B /* Assessment.swift in Sources */,
 				1D10B9C927ED3C3900DCD022 /* CourseTableCell.swift in Sources */,
 				1D67A3D927ED2FEB00A2FD7A /* SceneDelegate.swift in Sources */,
 			);

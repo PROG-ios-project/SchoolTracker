@@ -7,16 +7,45 @@
 
 import UIKit
 import CoreData
+import SQLite3
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    private let databaseName : String? = "SchoolDatabase.db"
+    private var databasePath : String?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let documentsDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        databasePath = documentsDir.appending("/" + databaseName!)
+        checkAndCreateDatabase()
+        
         return true
     }
+    
+    func checkAndCreateDatabase()
+    {
+
+        var success = false
+        let fileManager = FileManager.default
+        
+        success = fileManager.fileExists(atPath: databasePath!)
+    
+        if success {
+            return
+        }
+    
+        let databasePathFromApp = Bundle.main.resourcePath?.appending("/" + databaseName!)
+        
+        try? fileManager.copyItem(atPath: databasePathFromApp!, toPath: databasePath!)
+    
+        return
+    }
+    
+    
 
     // MARK: UISceneSession Lifecycle
 
