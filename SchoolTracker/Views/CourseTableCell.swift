@@ -72,7 +72,7 @@ class ClassTableCell: UITableViewCell{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, d MMM yyyy"
         
-        endDateLbl.text = "Ends \(dateFormatter.string(from: course.endDate))"
+        //endDateLbl.text = "Ends \(dateFormatter.string(from: course.endDate))"
         endDateLbl.translatesAutoresizingMaskIntoConstraints = false
         endDateLbl.sizeToFit()
         

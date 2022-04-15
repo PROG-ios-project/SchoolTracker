@@ -11,13 +11,16 @@ class Course{
     var code: String = ""
     private var grade: Double = 0.0
     private var isComplete: Bool = false
-    var endDate: Date = Date()
+    var credits: Float = 0.0
     
     init(){
         
     }
     
-    init(name: String, code: String, endDate: Date){
-        
+    init(name: String, code: String, credits: Float){
+        self.name = name
+        self.code = code
+      //  self.endDate = endDate
+        self.credits = credits
     }
 }

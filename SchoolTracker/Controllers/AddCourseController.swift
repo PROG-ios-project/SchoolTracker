@@ -13,16 +13,18 @@ class AddCourseController: UIViewController{
     
     @IBOutlet var codeField: UITextField!
     
-    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var creditsSlider: UISlider!
     var course: Course = Course()
     
     var delegate: AddCourseDelegate?
     
+    @IBOutlet var creditsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.nameField.delegate = self
         self.codeField.delegate = self
+        
     }
     
     
@@ -30,12 +32,19 @@ class AddCourseController: UIViewController{
         self.dismiss(animated: true)
     }
     
+    private var oldValue: Float = 0.0
+    @IBAction func onSliderChange(_ sender: UISlider) {
+        let sliderValue = Float(Int(sender.value * 2)) / 2.0
+        sender.value = sliderValue
+        creditsLabel.text = "\(sender.value)"
+    }
+    
     
     //Save course
     @IBAction func saveAction(_ sender: Any) {
         self.course.name = nameField.text ?? ""
         self.course.code = codeField.text ?? ""
-        self.course.endDate = datePicker.date
+        self.course.credits = creditsSlider.value
         
         delegate?.willSaveCourse(course: self.course)
         self.dismiss(animated: true)
