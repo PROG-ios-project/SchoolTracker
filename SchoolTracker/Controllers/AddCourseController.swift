@@ -33,17 +33,48 @@ class AddCourseController: UIViewController{
     }
     
     private var oldValue: Float = 0.0
+    
+    //Round out values to 0.5
     @IBAction func onSliderChange(_ sender: UISlider) {
         let sliderValue = Float(Int(sender.value * 2)) / 2.0
         sender.value = sliderValue
         creditsLabel.text = "\(sender.value)"
     }
     
+    //Present alert
+    func presentAlert(reason: AlertReason){
+        var title: String = ""
+        
+        
+        switch(reason){
+        case .noCode:
+            title = "Missing Course code"
+        case .noName:
+            title = "Missing Course name"
+        }
+        
+        let alertController = UIAlertController(title: title, message: "Make sure that you have filled all entries", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+        
+        self.present(alertController, animated: true)
+    }
     
     //Save course
     @IBAction func saveAction(_ sender: Any) {
-        self.course.name = nameField.text ?? ""
-        self.course.code = codeField.text ?? ""
+        guard let name = nameField.text, !name.isEmpty else{
+            presentAlert(reason: .noName)
+            
+            return
+        }
+        
+        guard let code = codeField.text, !code.isEmpty else{
+            presentAlert(reason: .noCode)
+            return
+        }
+        
+        
+        self.course.name = name
+        self.course.code = code
         self.course.credits = creditsSlider.value
         
         delegate?.willSaveCourse(course: self.course)
@@ -65,4 +96,10 @@ extension AddCourseController: UITextFieldDelegate{
         self.view.endEditing(true)
         return true
     }
+}
+
+
+enum AlertReason{
+    case noName
+    case noCode
 }

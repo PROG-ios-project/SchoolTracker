@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VnV-W2-UJW">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <navigationController id="VnV-W2-UJW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ZA-h2-I8I">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
@@ -30,11 +30,11 @@
             <objects>
                 <viewController id="c14-Wo-dHd" customClass="CourseListController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ib-Mi-r4T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lF1-Qc-ha8">
-                                <rect key="frame" x="10" y="88" width="394" height="808"/>
+                                <rect key="frame" x="10" y="44" width="394" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -69,7 +69,7 @@
             <objects>
                 <viewController id="3CX-gV-ffY" customClass="AddCourseController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxh-p2-T8j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3v-Im-Nrl">
@@ -179,12 +179,12 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="374" id="Bb4-L4-Qma"/>
                                     <constraint firstItem="1sL-kO-fFI" firstAttribute="leading" secondItem="h3v-Im-Nrl" secondAttribute="leading" id="CC2-Na-DPS"/>
                                     <constraint firstItem="BIp-fR-edq" firstAttribute="leading" secondItem="h3v-Im-Nrl" secondAttribute="leading" id="FIv-Z3-F5o"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="338" id="O9A-08-AEC"/>
                                     <constraint firstItem="3Af-zM-wFY" firstAttribute="leading" secondItem="h3v-Im-Nrl" secondAttribute="leading" constant="10" id="UJa-9i-dpn"/>
                                     <constraint firstItem="52R-KV-It5" firstAttribute="leading" secondItem="h3v-Im-Nrl" secondAttribute="leading" id="hRn-nL-8La"/>
                                     <constraint firstItem="hAX-n4-IRo" firstAttribute="leading" secondItem="h3v-Im-Nrl" secondAttribute="leading" id="kcU-qN-ZTi"/>
                                     <constraint firstAttribute="trailing" secondItem="WSD-F6-5aq" secondAttribute="trailing" id="lor-dl-dEp"/>
                                     <constraint firstAttribute="trailing" secondItem="1sL-kO-fFI" secondAttribute="trailing" id="lsi-tb-0g2"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="650" id="msU-Mi-634"/>
                                     <constraint firstItem="pTE-8n-Djv" firstAttribute="leading" secondItem="h3v-Im-Nrl" secondAttribute="leading" id="qGc-by-DNq"/>
                                     <constraint firstAttribute="trailing" secondItem="52R-KV-It5" secondAttribute="trailing" id="qqH-nY-XNt"/>
                                     <constraint firstAttribute="trailing" secondItem="pTE-8n-Djv" secondAttribute="trailing" id="tlm-fG-Erx"/>
@@ -212,7 +212,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IB2-tb-ys5">
-                                <rect key="frame" x="347.5" y="5" width="61.5" height="32.5"/>
+                                <rect key="frame" x="347.33333333333331" y="5" width="61.666666666666686" height="32.666666666666664"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
