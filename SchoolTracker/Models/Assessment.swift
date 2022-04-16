@@ -9,6 +9,7 @@ import Foundation
 
 class Assessment {
     var id : Int? = nil
+    var name : String = ""
     var courseId : Int = -1
     var dateDue : Date = Date()
     var dateSubmitted : Date? = nil
@@ -16,7 +17,7 @@ class Assessment {
     var isComplete : Bool = false
     var isSubmitted : Bool = false
     var willNotify : Bool = false
-    var notificationTime : Int? = nil
+    var notificationTime : Int = 0
     var grade : Float = 0.0
     var category : String = ""
     
@@ -24,7 +25,8 @@ class Assessment {
         
     }
     
-    init(courseId : Int, dateDue: Date, weight: Float, willNotify: Bool, notificationTime: Int?, category: String){
+    init(name : String, courseId : Int, dateDue: Date, weight: Float, willNotify: Bool, notificationTime: Int, category: String){
+        self.name = name
         self.courseId = courseId
         self.dateDue = dateDue
         self.weight = weight
@@ -33,8 +35,9 @@ class Assessment {
         self.category = category
     }
     
-    init(id: Int?, courseId: Int, dateDue: Date, dateSubmitted: Date?, weight: Float, isComplete: Bool, isSubmitted: Bool, willNotify: Bool, notificationTime: Int?, grade: Float, category: String){
+    init(id: Int?, name: String, courseId: Int, dateDue: Date, dateSubmitted: Date?, weight: Float, isComplete: Bool, isSubmitted: Bool, willNotify: Bool, notificationTime: Int, grade: Float, category: String){
         self.id = id
+        self.name = name
         self.courseId = courseId
         self.dateDue = dateDue
         self.dateSubmitted = dateSubmitted
