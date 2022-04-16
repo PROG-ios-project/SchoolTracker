@@ -21,7 +21,6 @@
 		1D67A3FD27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67A3FC27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift */; };
 		1D928FCD27FD0D2100F388E0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */; };
 		1D928FCF27FD139C00F388E0 /* AddCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D928FCE27FD139C00F388E0 /* AddCourseController.swift */; };
-		B7220ED2280A01DC00ED0F3B /* SchoolDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = B7220ED1280A01DC00ED0F3B /* SchoolDatabase.db */; };
 		B7220ED4280A085700ED0F3B /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED3280A085700ED0F3B /* MainMenuViewController.swift */; };
 		B7220ED6280A2B9600ED0F3B /* SchoolDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED5280A2B9600ED0F3B /* SchoolDB.swift */; };
 		B7220ED8280A31F500ED0F3B /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED7280A31F500ED0F3B /* Semester.swift */; };
@@ -64,7 +63,7 @@
 		1D67A3FC27ED2FED00A2FD7A /* SchoolTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D928FCC27FD0D2100F388E0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		1D928FCE27FD139C00F388E0 /* AddCourseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseController.swift; sourceTree = "<group>"; };
-		B7220ED1280A01DC00ED0F3B /* SchoolDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = SchoolDatabase.db; path = ../../../../SchoolDatabase.db; sourceTree = "<group>"; };
+		1DD99711280A3C7F000F550C /* SchoolDatabase.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = SchoolDatabase.db; sourceTree = "<group>"; };
 		B7220ED3280A085700ED0F3B /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		B7220ED5280A2B9600ED0F3B /* SchoolDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDB.swift; sourceTree = "<group>"; };
 		B7220ED7280A31F500ED0F3B /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
@@ -183,7 +182,7 @@
 		B7220ED0280A016F00ED0F3B /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				B7220ED1280A01DC00ED0F3B /* SchoolDatabase.db */,
+				1DD99711280A3C7F000F550C /* SchoolDatabase.db */,
 				B7220ED5280A2B9600ED0F3B /* SchoolDB.swift */,
 			);
 			path = Database;
@@ -295,7 +294,6 @@
 			files = (
 				1D67A3E627ED2FED00A2FD7A /* LaunchScreen.storyboard in Resources */,
 				1D67A3E327ED2FED00A2FD7A /* Assets.xcassets in Resources */,
-				B7220ED2280A01DC00ED0F3B /* SchoolDatabase.db in Resources */,
 				1D67A3DE27ED2FEB00A2FD7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
