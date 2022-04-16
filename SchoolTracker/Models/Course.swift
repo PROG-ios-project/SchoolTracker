@@ -7,20 +7,36 @@
 
 import Foundation
 class Course{
+    var id: Int? = nil
+    var semId: Int = -1
     var name: String = ""
     var code: String = ""
-    private var grade: Double = 0.0
-    private var isComplete: Bool = false
+    var grade: Float = 0.0
+    var isComplete: Bool = false
     var credits: Float = 0.0
     
     init(){
         
     }
     
-    init(name: String, code: String, credits: Float){
+    init(semId : Int, name: String, code: String, credits: Float){
+        self.semId = semId
         self.name = name
         self.code = code
       //  self.endDate = endDate
         self.credits = credits
     }
+    
+    init(id : Int?, semId : Int, name: String, code: String, credits: Float, grade: Float, isComplete: Bool){
+        self.id = id
+        self.semId = semId
+        self.name = name
+        self.code = code
+        self.credits = credits
+        self.grade = grade
+        self.isComplete = isComplete
+    }
+    
+    
+    
 }

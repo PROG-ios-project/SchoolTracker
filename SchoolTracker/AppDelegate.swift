@@ -13,7 +13,7 @@ import SQLite3
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private let databaseName : String? = "SchoolDatabase.db"
-    private var databasePath : String?
+    var databasePath : String?
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

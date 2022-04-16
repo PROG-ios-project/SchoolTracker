@@ -8,20 +8,44 @@
 import UIKit
 import SQLite3
 
-class SchoolDB : NSObject
+class SchoolDB
 {
+    private var mainDelegate : AppDelegate
     
-    
-    func getAllSemesters() //-> [Semester]
-    {
-        
-        
-        
+    init(){
+        mainDelegate = UIApplication.shared.delegate as! AppDelegate
     }
     
-    func getOneSemester() // -> Semester
+    
+    func getAllSemesters() -> [Semester]
     {
+        var db: OpaquePointer? = nil
         
+        if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(mainDelegate.databasePath)")
+            
+            
+            var queryStmt: OpaquePointer? = nil
+            var queryStmtString : String = "select * from semester"
+            
+            // step 7e - setup object that will handle data transfer
+            if sqlite3_prepare_v2(db, queryStmtString, -1, &queryStmt, nil) == SQLITE_OK {
+                
+                // step 7f - loop through row by row to extract dat
+                while( sqlite3_step(queryStmt) == SQLITE_ROW ) {
+                    
+                }
+            }
+        }
+        
+        return []
+    }
+    
+    func getOneSemester() -> Semester?
+    {
+        var sem : Semester = Semester()
+        
+        return sem
     }
     
     func getAllCourses() -> [Course]
@@ -32,7 +56,7 @@ class SchoolDB : NSObject
         return courses
     }
     
-    func getCourseList(semester: Any) -> [Course]
+    func getCourseList(semester: Semester) -> [Course]
     {
         var courseList : [Course] = []
         
@@ -45,7 +69,7 @@ class SchoolDB : NSObject
         
     }
     
-    func addSemester(semester: Any) -> Bool
+    func addSemester(semester: Semester) -> Bool
     {
         
         
@@ -59,14 +83,14 @@ class SchoolDB : NSObject
         return false
     }
     
-    func addAssessment(assessment: Any) -> Bool
+    func addAssessment(assessment: Assessment) -> Bool
     {
         
         
         return false
     }
     
-    func editSemester(oldSem: Any, newSem: Any) -> Bool
+    func editSemester(oldSem: Semester, newSem: Semester) -> Bool
     {
         
         
@@ -80,7 +104,7 @@ class SchoolDB : NSObject
         return false
     }
     
-    func editAssessment(oldAssess: Any, newAssess: Any) -> Bool
+    func editAssessment(oldAssess: Assessment, newAssess: Assessment) -> Bool
     {
         
         
