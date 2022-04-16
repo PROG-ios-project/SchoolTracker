@@ -37,7 +37,7 @@ class NotificationManager{
         content.sound = .default
         content.badge = 1
         
-        guard let notificationDate = Calendar.current.date(byAdding: .minute, value: assessment.notificationTime, to: assessment.dateDue) else{
+        guard let notificationDate = Calendar.current.date(byAdding: .minute, value: -assessment.notificationTime, to: assessment.dateDue) else{
             return nil
         }
         
