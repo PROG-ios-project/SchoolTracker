@@ -10,6 +10,8 @@ import SQLite3
 
 class SchoolDB
 {
+    static let shared = SchoolDB()
+    
     private var mainDelegate : AppDelegate
     private var dateFormatter = DateFormatter()
     
