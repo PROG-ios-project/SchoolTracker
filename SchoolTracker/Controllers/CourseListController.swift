@@ -25,6 +25,9 @@ class CourseListController: UIViewController {
     
     var courses: [Course] = []
     
+    //Pass semester id for course list
+    var currentSemesterID: Int = 0
+    
     //Retruns courses to be displayed in list
     var displayedCourses: [Course]{
         get{
@@ -44,6 +47,9 @@ class CourseListController: UIViewController {
         self.navigationItem.title = "School Tracking"
         
         self.navigationItem.searchController = searchController
+        
+        
+        self.courses = SchoolDB.shared.getCourseList(semId: currentSemesterID)
         
         //Setting up table view
         tableView.backgroundColor = .clear
@@ -97,6 +103,21 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit", handler: { _, _, _ in
+            
+            
+        })
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { _, _, _ in
+            
+            
+        })
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+        return swipeConfiguration
+    }
+    
     
 
 
@@ -104,7 +125,10 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
 
 extension CourseListController: AddCourseDelegate{
     func willSaveCourse(course: Course) {
+        course.semId = currentSemesterID
+        _ = SchoolDB.shared.addCourse(course: course)
         self.courses.append(course)
+
         tableView.reloadData()
     }
     
