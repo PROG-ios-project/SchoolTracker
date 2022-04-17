@@ -8,7 +8,7 @@
 import Foundation
 
 class Assessment {
-    var id : Int? = nil
+    var id : Int = -1
     var name : String = ""
     var courseId : Int = -1
     var dateDue : Date = Date()
@@ -35,7 +35,7 @@ class Assessment {
         self.category = category
     }
     
-    init(id: Int?, name: String, courseId: Int, dateDue: Date, dateSubmitted: Date?, weight: Float, isComplete: Bool, isSubmitted: Bool, willNotify: Bool, notificationTime: Int, grade: Float, category: String){
+    init(id: Int, name: String, courseId: Int, dateDue: Date, dateSubmitted: Date?, weight: Float, isComplete: Bool, isSubmitted: Bool, willNotify: Bool, notificationTime: Int, grade: Float, category: String){
         self.id = id
         self.name = name
         self.courseId = courseId
