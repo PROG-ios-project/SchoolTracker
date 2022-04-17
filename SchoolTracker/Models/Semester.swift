@@ -8,7 +8,7 @@
 import Foundation
 
 class Semester {
-    var id : Int? = nil
+    var id : Int = -1
     var term : Int = 0
     var year : Int = -1
     var isComplete : Bool = false
@@ -23,7 +23,7 @@ class Semester {
         self.year = year
     }
     
-    init(id: Int?, term: Int, year: Int, isComplete: Bool, grade: Float){
+    init(id: Int, term: Int, year: Int, isComplete: Bool, grade: Float){
         self.id = id
         self.term = term
         self.year = year

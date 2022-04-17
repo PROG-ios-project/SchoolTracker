@@ -7,7 +7,7 @@
 
 import Foundation
 class Course{
-    var id: Int? = nil
+    var id: Int = -1
     var semId: Int = -1
     var name: String = ""
     var code: String = ""
@@ -27,7 +27,7 @@ class Course{
         self.credits = credits
     }
     
-    init(id : Int?, semId : Int, name: String, code: String, credits: Float, grade: Float, isComplete: Bool){
+    init(id : Int, semId : Int, name: String, code: String, credits: Float, grade: Float, isComplete: Bool){
         self.id = id
         self.semId = semId
         self.name = name

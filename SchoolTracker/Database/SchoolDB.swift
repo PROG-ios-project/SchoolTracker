@@ -417,4 +417,148 @@ class SchoolDB
         
         return false
     }
+    
+    func deleteSemester(id: Int)
+    {
+        var db : OpaquePointer? = nil
+        var courses : [Course] = []
+        
+        courses = getCourseList(semId: id)
+        if courses.count > 0 {
+            for course in courses{
+                deleteAssessmentsForCourse(courseId: course.id)
+            }
+        }
+        
+        if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+            
+            // step 16d - setup query - entries is the table name you created in step 0
+            var deleteStmt: OpaquePointer? = nil
+            let deleteStmtString : String = "delete from semester where id = ?"
+            
+            // step 16e - setup object that will handle data transfer
+            if sqlite3_prepare_v2(db, deleteStmtString, -1, &deleteStmt, nil) == SQLITE_OK {
+                
+                sqlite3_bind_int(deleteStmt, 1, Int32(id))
+                
+                if sqlite3_step(deleteStmt) == SQLITE_DONE {
+                    
+                    print("Successfully deleted record.")
+                    
+                } else {
+                    print("Could not delete record.")
+                }
+                sqlite3_finalize(deleteStmt)
+            } else {
+                print("DELETE statement could not be prepared")
+            }
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+        }
+        
+        
+    }
+    
+    func deleteCourse(id: Int)
+    {
+        var db : OpaquePointer? = nil
+        
+        deleteAssessmentsForCourse(courseId: id)
+        
+        if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+            
+            // step 16d - setup query - entries is the table name you created in step 0
+            var deleteStmt: OpaquePointer? = nil
+            let deleteStmtString : String = "delete from course where id = ?"
+            
+            // step 16e - setup object that will handle data transfer
+            if sqlite3_prepare_v2(db, deleteStmtString, -1, &deleteStmt, nil) == SQLITE_OK {
+                
+                sqlite3_bind_int(deleteStmt, 1, Int32(id))
+                
+                if sqlite3_step(deleteStmt) == SQLITE_DONE {
+                    
+                    print("Successfully deleted record.")
+                    
+                } else {
+                    print("Could not delete record.")
+                }
+                sqlite3_finalize(deleteStmt)
+            } else {
+                print("DELETE statement could not be prepared")
+            }
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+        }
+    }
+    
+    func deleteAssessment(id: Int)
+    {
+        var db : OpaquePointer? = nil
+        
+        if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+            
+            // step 16d - setup query - entries is the table name you created in step 0
+            var deleteStmt: OpaquePointer? = nil
+            let deleteStmtString : String = "delete from assessment where id = ?"
+            
+            // step 16e - setup object that will handle data transfer
+            if sqlite3_prepare_v2(db, deleteStmtString, -1, &deleteStmt, nil) == SQLITE_OK {
+                
+                sqlite3_bind_int(deleteStmt, 1, Int32(id))
+                
+                if sqlite3_step(deleteStmt) == SQLITE_DONE {
+                    
+                    print("Successfully deleted record.")
+                    
+                } else {
+                    print("Could not delete record.")
+                }
+                sqlite3_finalize(deleteStmt)
+            } else {
+                print("DELETE statement could not be prepared")
+            }
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+        }
+    }
+    
+    func deleteAssessmentsForCourse(courseId: Int)
+    {
+        var db : OpaquePointer? = nil
+        
+        if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+            
+            // step 16d - setup query - entries is the table name you created in step 0
+            var deleteStmt: OpaquePointer? = nil
+            let deleteStmtString : String = "delete from assessment where courseid = ?"
+            
+            // step 16e - setup object that will handle data transfer
+            if sqlite3_prepare_v2(db, deleteStmtString, -1, &deleteStmt, nil) == SQLITE_OK {
+                
+                sqlite3_bind_int(deleteStmt, 1, Int32(courseId))
+                
+                if sqlite3_step(deleteStmt) == SQLITE_DONE {
+                    
+                    print("Successfully deleted record(s).")
+                    
+                } else {
+                    print("Could not delete record(s).")
+                }
+                sqlite3_finalize(deleteStmt)
+            } else {
+                print("DELETE statement could not be prepared")
+            }
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+        }
+    }
 }
