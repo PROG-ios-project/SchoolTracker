@@ -18,14 +18,96 @@
                         <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="c14-Wo-dHd" kind="relationship" relationship="rootViewController" id="4A6-jY-9OK"/>
+                        <segue destination="0mj-9o-MIS" kind="relationship" relationship="rootViewController" id="aum-L0-Y86"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y76-WU-UH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="-1"/>
+            <point key="canvasLocation" x="-1025" y="-2"/>
         </scene>
-        <!--List of courses-->
+        <!--List of Semesters-->
+        <scene sceneID="xzE-EY-f8U">
+            <objects>
+                <viewController id="oBG-R4-VZu" customClass="SemesterListViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1hT-VO-dQr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wBq-Dr-rbo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="List of Semesters" id="aHc-9P-43V">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="1DI-a5-2Ww"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="82v-cz-4if" kind="show" id="lVg-cJ-vWe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjB-VX-V6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6" y="-807"/>
+        </scene>
+        <!--Semester-->
+        <scene sceneID="DBA-e2-6Vg">
+            <objects>
+                <viewController id="82v-cz-4if" customClass="SemesterInfoViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JPp-gJ-pMT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wMK-YW-bPt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Semester" id="5PG-GC-feA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azd-bi-6oV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="-807"/>
+        </scene>
+        <!--Main Menu View Controller-->
+        <scene sceneID="Kdv-af-Vkv">
+            <objects>
+                <viewController id="0mj-9o-MIS" customClass="MainMenuViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K0L-Xa-Ku7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50O-Z5-U4U">
+                                <rect key="frame" x="164" y="351" width="87" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Courses"/>
+                                <connections>
+                                    <segue destination="c14-Wo-dHd" kind="show" id="c8I-DP-HWe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ta9-Tl-rBB">
+                                <rect key="frame" x="161" y="245" width="93" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Semesters"/>
+                                <connections>
+                                    <segue destination="oBG-R4-VZu" kind="show" id="QRk-qR-qf7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9w-ss-Rda">
+                                <rect key="frame" x="176" y="496" width="63" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="About"/>
+                                <connections>
+                                    <segue destination="c7n-Bz-6nM" kind="show" id="Ovp-hl-eXo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3v0-s4-Spt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xWn-te-m6W"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOT-Lx-Zub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207" y="-2"/>
+        </scene>
+        <!--Course List-->
         <scene sceneID="nXj-ac-IQ4">
             <objects>
                 <viewController id="c14-Wo-dHd" customClass="CourseListController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +129,7 @@
                             <constraint firstItem="lF1-Qc-ha8" firstAttribute="leading" secondItem="jIQ-tZ-Kc2" secondAttribute="leading" constant="10" id="ttH-OS-cqh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="List of courses" id="ewE-by-6R3">
+                    <navigationItem key="navigationItem" title="Course List" id="ewE-by-6R3">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zeg-Uq-O0t">
                             <connections>
                                 <segue destination="3CX-gV-ffY" kind="popoverPresentation" identifier="addCourse" popoverAnchorBarButtonItem="Zeg-Uq-O0t" id="tXI-kR-YWn">
@@ -58,11 +140,66 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lF1-Qc-ha8" id="HIE-EG-tH7"/>
+                        <segue destination="xGO-rh-S2M" kind="show" id="rWQ-Ef-9Z6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zob-le-yvj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653.62318840579712" y="-1.3392857142857142"/>
+            <point key="canvasLocation" x="749" y="-2"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bNG-LX-dvi">
+            <objects>
+                <viewController id="Izj-Xi-csK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wj9-8T-BKj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7OS-Ac-JK2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="agi-cY-Pae"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YT7-Um-LRf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C10-Fn-oeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1026.0869565217392" y="770.38043478260875"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="wIK-fV-9AR">
+            <objects>
+                <viewController id="c7n-Bz-6nM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Q7-Ir-5xc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrl-gv-yB6">
+                                <rect key="frame" x="144" y="477" width="128" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="GPA Calculation"/>
+                                <connections>
+                                    <segue destination="Izj-Xi-csK" kind="show" id="WiE-vT-Ko7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FKX-po-7RY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="jXi-mR-qne"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNn-eL-LOG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207" y="770"/>
         </scene>
         <!--Add Course Controller-->
         <scene sceneID="91h-ly-mPL">
@@ -251,7 +388,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XU-7X-uDm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518.840579710145" y="-1.3392857142857142"/>
+            <point key="canvasLocation" x="654" y="772"/>
+        </scene>
+        <!--Course-->
+        <scene sceneID="rw2-HP-2ab">
+            <objects>
+                <viewController id="xGO-rh-S2M" customClass="CourseInfoViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="csH-3h-35g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qRw-7M-Vl3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Course" id="pSW-bR-H8h"/>
+                    <connections>
+                        <segue destination="q7C-KT-KhZ" kind="popoverPresentation" id="Pf6-qN-Khx">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="nyD-rJ-ohh" kind="show" id="tuI-vQ-uBk"/>
+                        <segue destination="9k3-KR-cVG" kind="popoverPresentation" id="Jnh-3B-dzg">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bdr-dp-pA2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="-2"/>
+        </scene>
+        <!--Add Assessment View Controller-->
+        <scene sceneID="9el-XF-uve">
+            <objects>
+                <viewController id="q7C-KT-KhZ" customClass="AddAssessmentViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fQJ-hk-xOf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YMQ-Up-muy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qbL-Kx-oEy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="771"/>
+        </scene>
+        <!--Assessment-->
+        <scene sceneID="UYF-Mn-1du">
+            <objects>
+                <viewController id="nyD-rJ-ohh" customClass="AssessmentInfoViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iqr-qp-e49">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Kkq-Iy-4TN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Assessment" id="Hpx-vw-Ap6"/>
+                    <connections>
+                        <segue destination="zYg-Bw-IWe" kind="popoverPresentation" id="yME-u7-cFp">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9t-mX-f9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2762" y="-2"/>
+        </scene>
+        <!--Edit Course View Controller-->
+        <scene sceneID="RZN-om-ree">
+            <objects>
+                <viewController id="9k3-KR-cVG" customClass="EditCourseViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8KK-Nv-giC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="82c-CL-0fo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gtl-18-Xj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="-765"/>
+        </scene>
+        <!--Edit Assessment View Controller-->
+        <scene sceneID="BCu-Hv-f7W">
+            <objects>
+                <viewController id="zYg-Bw-IWe" customClass="EditAssessmentViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acJ-cf-TGf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oOu-iz-r2A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="INK-Dk-cOh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOd-4D-DCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2761" y="-765"/>
         </scene>
     </scenes>
     <resources>

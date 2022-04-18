@@ -2,7 +2,7 @@
 //  SchoolDB.swift
 //  SchoolTracker
 //
-//  Created by Penric on 4/15/22.
+//  Created by Thomas Forber on 4/15/22.
 //
 
 import UIKit
@@ -840,8 +840,6 @@ class SchoolDB
         } else {
             print("Unable to open database.")
         }
-        
-       
     }
     
 }
