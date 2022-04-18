@@ -32,6 +32,7 @@
 		B7220EE4280DD1B300ED0F3B /* AssessmentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */; };
 		B7220EE6280DD1C700ED0F3B /* SemesterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */; };
 		B7220EE8280DD3BB00ED0F3B /* SemesterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE7280DD3BB00ED0F3B /* SemesterInfoViewController.swift */; };
+		B7220EEA280DE7E500ED0F3B /* SchoolDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 1DD99711280A3C7F000F550C /* SchoolDatabase.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7220EEA280DE7E500ED0F3B /* SchoolDatabase.db in Resources */,
 				1D67A3E627ED2FED00A2FD7A /* LaunchScreen.storyboard in Resources */,
 				1D67A3E327ED2FED00A2FD7A /* Assets.xcassets in Resources */,
 				1D67A3DE27ED2FEB00A2FD7A /* Main.storyboard in Resources */,
