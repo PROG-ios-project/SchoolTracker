@@ -214,7 +214,7 @@ class SchoolDB
         } else{
             print("Unable to open database.")
         }
-        
+        print(courses.count)
         return courses
     }
     

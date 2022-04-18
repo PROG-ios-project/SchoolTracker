@@ -26,7 +26,7 @@ class ClassTableCell: UITableViewCell{
         
         nameLbl.removeFromSuperview()
         codeLbl.removeFromSuperview()
-
+        creditLbl.removeFromSuperview()
     }
     
     func start(course: Course){
@@ -66,21 +66,18 @@ class ClassTableCell: UITableViewCell{
         codeLbl.leadingAnchor.constraint(equalTo: self.nameLbl.leadingAnchor).isActive = true
         codeLbl.heightAnchor.constraint(equalToConstant: codeLbl.frame.height).isActive = true
         
-//        endDateLbl = UILabel()
-//        endDateLbl.font = UIFont.systemFont(ofSize: 18, weight: .light)
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "E, d MMM yyyy"
-//
-//        //endDateLbl.text = "Ends \(dateFormatter.string(from: course.endDate))"
-//        endDateLbl.translatesAutoresizingMaskIntoConstraints = false
-//        endDateLbl.sizeToFit()
-//
-//        self.contentView.addSubview(endDateLbl)
-//
-//        endDateLbl.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -20).isActive = true
-//        endDateLbl.heightAnchor.constraint(equalToConstant: endDateLbl.frame.height).isActive = true
-//        endDateLbl.leadingAnchor.constraint(equalTo: self.nameLbl.leadingAnchor).isActive = true
+        //Set credit label
+        creditLbl = UILabel()
+        creditLbl.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        creditLbl.text = "Credits: \(course.credits)"
+        creditLbl.translatesAutoresizingMaskIntoConstraints = false
+        creditLbl.sizeToFit()
+        
+        self.contentView.addSubview(creditLbl)
+        
+        creditLbl.topAnchor.constraint(equalTo: self.codeLbl.bottomAnchor, constant: 10).isActive = true
+        creditLbl.leadingAnchor.constraint(equalTo: self.nameLbl.leadingAnchor).isActive = true
+        creditLbl.heightAnchor.constraint(equalToConstant: creditLbl.frame.height).isActive = true
     }
     
 }

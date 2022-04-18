@@ -35,6 +35,7 @@ class CourseListController: UIViewController {
         }
     }
     
+    var editingCourse: Course?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class CourseListController: UIViewController {
         self.navigationItem.searchController = searchController
         
         
-        self.courses = SchoolDB.shared.getCourseList(semId: currentSemesterID)
+        self.courses = SchoolDB.shared.getAllCourses()
         
         //Setting up table view
         tableView.backgroundColor = .clear
@@ -64,9 +65,23 @@ class CourseListController: UIViewController {
         }
     }
             
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addCourse"{
+        if segue.identifier == "addCourse" || segue.identifier == "editCourse"{
             (segue.destination as? AddCourseController)?.delegate = self
+        }
+        
+        if segue.identifier == "editCourse"{
+            guard let addCourseController = segue.destination as? AddCourseController, let editingCourse = self.editingCourse else{
+                return
+            }
+            
+            addCourseController.course = editingCourse
+            self.editingCourse = nil
+            addCourseController.isCourseEditing = true
         }
     }
     
@@ -104,8 +119,12 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editAction = UIContextualAction(style: .normal, title: "Edit", handler: { _, _, _ in
+        
+        let course = (tableView.cellForRow(at: indexPath) as? ClassTableCell)?.course
+        let editAction = UIContextualAction(style: .normal, title: "Edit", handler: { _,_,_ in
             
+            self.editingCourse = course
+            self.performSegue(withIdentifier: "editCourse", sender: nil)
             
         })
         
@@ -124,10 +143,17 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension CourseListController: AddCourseDelegate{
-    func willSaveCourse(course: Course) {
-        course.semId = currentSemesterID
-        _ = SchoolDB.shared.addCourse(course: course)
-        self.courses.append(course)
+    func willSaveCourse(course: Course, isEditing: Bool) {
+        
+        if isEditing{
+            _ = SchoolDB.shared.editCourse(newCourse: course)
+        }
+        else{
+            _ = SchoolDB.shared.addCourse(course: course)
+            self.courses.append(course)
+        }
+        
+        
 
         tableView.reloadData()
     }

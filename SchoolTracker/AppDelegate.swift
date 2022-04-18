@@ -105,6 +105,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    
+    //Will resign active - set notifications
+    func applicationWillResignActive(_ application: UIApplication) {
+        //let courses = SchoolDB.shared.getAsse
+        //NotificationManager.shared.setUpNotifications(assessmnets: <#T##[Assessment]#>)
+    }
 
 }
 

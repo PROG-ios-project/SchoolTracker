@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class AddCourseController: UIViewController{
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var nameField: UITextField!
     
     @IBOutlet var codeField: UITextField!
@@ -18,6 +19,8 @@ class AddCourseController: UIViewController{
     
     var delegate: AddCourseDelegate?
     
+    var isCourseEditing = false
+    
     @IBOutlet var creditsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +28,24 @@ class AddCourseController: UIViewController{
         self.nameField.delegate = self
         self.codeField.delegate = self
         
+        //Configure based on if the course is new or editing
+        if isCourseEditing{
+            self.titleLabel.text = "Edit course"
+            
+            self.nameField.text = course.name
+            self.codeField.text = course.code
+            self.creditsSlider.setValue(course.credits, animated: false)
+        }
+        else{
+            self.titleLabel.text = "Add new course"
+        }
     }
     
     
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
-    private var oldValue: Float = 0.0
-    
+
     //Round out values to 0.5
     @IBAction func onSliderChange(_ sender: UISlider) {
         let sliderValue = Float(Int(sender.value * 2)) / 2.0
@@ -77,7 +89,7 @@ class AddCourseController: UIViewController{
         self.course.code = code
         self.course.credits = creditsSlider.value
         
-        delegate?.willSaveCourse(course: self.course)
+        delegate?.willSaveCourse(course: self.course, isEditing: self.isCourseEditing)
         self.dismiss(animated: true)
     }
     
@@ -88,7 +100,7 @@ class AddCourseController: UIViewController{
 
 
 protocol AddCourseDelegate{
-    func willSaveCourse(course: Course)
+    func willSaveCourse(course: Course, isEditing: Bool)
 }
 
 extension AddCourseController: UITextFieldDelegate{
