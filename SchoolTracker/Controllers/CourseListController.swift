@@ -34,8 +34,11 @@ class CourseListController: UIViewController {
             return searchText.isEmpty ? courses.filter({$0.name.contains(searchText)}) : courses
         }
     }
-    
+    //Course to edit
     var editingCourse: Course?
+    
+    //Selected course
+    var selectedCourse: Course?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +46,6 @@ class CourseListController: UIViewController {
         
         self.view.backgroundColor = .white
         
-        //Set up large title for navigation controller
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "School Tracking"
         
         self.navigationItem.searchController = searchController
         
@@ -83,6 +83,14 @@ class CourseListController: UIViewController {
             self.editingCourse = nil
             addCourseController.isCourseEditing = true
         }
+        else if segue.identifier == "courseInfo"{
+            guard let infoCourseController = segue.destination as? CourseInfoViewController, let selectedCourse = self.selectedCourse else{
+                return
+            }
+            
+            infoCourseController.course = selectedCourse
+            self.selectedCourse = nil
+        }
     }
     
 
@@ -116,6 +124,12 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
         }
         cell.start(course: courses[indexPath.section])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.selectedCourse = (tableView.cellForRow(at: indexPath) as? ClassTableCell)?.course
+        self.performSegue(withIdentifier: "courseInfo", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

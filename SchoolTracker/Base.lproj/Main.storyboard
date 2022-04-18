@@ -70,11 +70,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="92" translatesAutoresizingMaskIntoConstraints="NO" id="0mq-JX-xAg">
-                                <rect key="frame" x="160.66666666666666" y="229.66666666666663" width="92.666666666666657" height="277"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="0mq-JX-xAg">
+                                <rect key="frame" x="82" y="258" width="250" height="220"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ta9-Tl-rBB">
-                                        <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="isb-vt-eo3"/>
+                                            <constraint firstAttribute="width" constant="250" id="jgv-B0-5QR"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Semesters"/>
                                         <connections>
@@ -82,7 +86,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50O-Z5-U4U">
-                                        <rect key="frame" x="0.0" y="123.00000000000003" width="92.666666666666671" height="31"/>
+                                        <rect key="frame" x="0.0" y="90" width="250" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dSO-4A-dPf"/>
+                                            <constraint firstAttribute="width" constant="250" id="dXz-Fc-dmt"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Courses"/>
                                         <connections>
@@ -90,7 +98,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9w-ss-Rda">
-                                        <rect key="frame" x="0.0" y="246" width="92.666666666666671" height="31"/>
+                                        <rect key="frame" x="0.0" y="180" width="250" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FDm-hm-fzw"/>
+                                            <constraint firstAttribute="width" constant="250" id="Xxf-Gf-MGy"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="About"/>
                                         <connections>
@@ -108,6 +120,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xWn-te-m6W"/>
+                    <connections>
+                        <outletCollection property="buttons" destination="ta9-Tl-rBB" collectionClass="NSMutableArray" id="6ZW-qR-53c"/>
+                        <outletCollection property="buttons" destination="50O-Z5-U4U" collectionClass="NSMutableArray" id="JNR-0L-Bok"/>
+                        <outletCollection property="buttons" destination="X9w-ss-Rda" collectionClass="NSMutableArray" id="XtV-d4-erD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOT-Lx-Zub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lF1-Qc-ha8">
-                                <rect key="frame" x="10" y="44" width="394" height="692"/>
+                                <rect key="frame" x="10" y="0.0" width="394" height="736"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -130,7 +147,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="lF1-Qc-ha8" secondAttribute="bottom" id="8mz-me-o8C"/>
-                            <constraint firstItem="lF1-Qc-ha8" firstAttribute="top" secondItem="jIQ-tZ-Kc2" secondAttribute="top" id="bTC-Wd-vkX"/>
+                            <constraint firstItem="lF1-Qc-ha8" firstAttribute="top" secondItem="3Ib-Mi-r4T" secondAttribute="top" id="bYr-02-zyF"/>
                             <constraint firstItem="lF1-Qc-ha8" firstAttribute="trailing" secondItem="jIQ-tZ-Kc2" secondAttribute="trailing" constant="-10" id="gGq-Hb-M0P"/>
                             <constraint firstItem="lF1-Qc-ha8" firstAttribute="leading" secondItem="jIQ-tZ-Kc2" secondAttribute="leading" constant="10" id="ttH-OS-cqh"/>
                         </constraints>
@@ -146,7 +163,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lF1-Qc-ha8" id="HIE-EG-tH7"/>
-                        <segue destination="xGO-rh-S2M" kind="show" id="rWQ-Ef-9Z6"/>
+                        <segue destination="xGO-rh-S2M" kind="show" identifier="courseInfo" id="rWQ-Ef-9Z6"/>
                         <segue destination="3CX-gV-ffY" kind="popoverPresentation" identifier="editCourse" popoverAnchorView="lF1-Qc-ha8" id="eY0-4c-G8C">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -407,11 +424,24 @@
                     <view key="view" contentMode="scaleToFill" id="csH-3h-35g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MDb-9N-Qdz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="qRw-7M-Vl3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qRw-7M-Vl3" firstAttribute="trailing" secondItem="MDb-9N-Qdz" secondAttribute="trailing" id="4oI-5i-DjX"/>
+                            <constraint firstItem="MDb-9N-Qdz" firstAttribute="top" secondItem="csH-3h-35g" secondAttribute="top" id="byP-MM-PRT"/>
+                            <constraint firstItem="qRw-7M-Vl3" firstAttribute="bottom" secondItem="MDb-9N-Qdz" secondAttribute="bottom" id="nNn-92-TM7"/>
+                            <constraint firstItem="MDb-9N-Qdz" firstAttribute="leading" secondItem="qRw-7M-Vl3" secondAttribute="leading" id="rLX-cQ-ygh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Course" id="pSW-bR-H8h"/>
                     <connections>
+                        <outlet property="tableView" destination="MDb-9N-Qdz" id="Vg0-gx-LQV"/>
                         <segue destination="nyD-rJ-ohh" kind="show" id="tuI-vQ-uBk"/>
                     </connections>
                 </viewController>
