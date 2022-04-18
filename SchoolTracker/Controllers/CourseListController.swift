@@ -107,7 +107,7 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
         return 10
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,13 +127,30 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
             self.performSegue(withIdentifier: "editCourse", sender: nil)
             
         })
+        editAction.backgroundColor = .init(red: 0, green: 122/255, blue: 1, alpha: 1)
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { _, _, _ in
+            let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete this course?", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                guard let course = course else{
+                    return
+                }
+                if let index = self.courses.firstIndex(where: {$0 === course}){
+                    self.courses.remove(at: index)
+                    
+                    self.tableView.reloadData()
+                }
+                SchoolDB.shared.deleteCourse(id: course.id)
+                
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             
+            
+            self.present(alertController, animated: true)
             
         })
         
-        let swipeConfiguration = UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return swipeConfiguration
     }
     

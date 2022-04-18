@@ -27,8 +27,10 @@ class ClassTableCell: UITableViewCell{
         nameLbl.removeFromSuperview()
         codeLbl.removeFromSuperview()
         creditLbl.removeFromSuperview()
+        gradeLbl.removeFromSuperview()
     }
     
+    //Add content to course table row with a course as a model
     func start(course: Course){
         self.course = course
         
@@ -41,7 +43,7 @@ class ClassTableCell: UITableViewCell{
         
         //Create name label
         nameLbl = UILabel()
-        nameLbl.font = UIFont.systemFont(ofSize: 23, weight: .heavy)
+        nameLbl.font = UIFont.systemFont(ofSize: 23, weight: .medium)
         nameLbl.text = course.name
         nameLbl.translatesAutoresizingMaskIntoConstraints = false
         nameLbl.sizeToFit()
@@ -78,6 +80,21 @@ class ClassTableCell: UITableViewCell{
         creditLbl.topAnchor.constraint(equalTo: self.codeLbl.bottomAnchor, constant: 10).isActive = true
         creditLbl.leadingAnchor.constraint(equalTo: self.nameLbl.leadingAnchor).isActive = true
         creditLbl.heightAnchor.constraint(equalToConstant: creditLbl.frame.height).isActive = true
+        
+        //Set grade label
+        gradeLbl = UILabel()
+        
+        gradeLbl.font = UIFont.systemFont(ofSize: 32, weight: .medium)
+        gradeLbl.text = "\(Int(course.grade))%"
+        gradeLbl.translatesAutoresizingMaskIntoConstraints = false
+        gradeLbl.sizeToFit()
+        
+        self.contentView.addSubview(gradeLbl)
+        
+        gradeLbl.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        gradeLbl.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20).isActive = true
+        gradeLbl.heightAnchor.constraint(equalToConstant: gradeLbl.frame.height).isActive = true
+        gradeLbl.widthAnchor.constraint(equalToConstant: gradeLbl.frame.width).isActive = true
     }
     
 }
