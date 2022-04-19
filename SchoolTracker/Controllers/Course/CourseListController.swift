@@ -31,7 +31,7 @@ class CourseListController: UIViewController {
     //Retruns courses to be displayed in list
     var displayedCourses: [Course]{
         get{
-            return searchText.isEmpty ? courses.filter({$0.name.contains(searchText)}) : courses
+            return searchText.isEmpty ? courses : courses.filter({$0.name.contains(searchText)})
         }
     }
     //Course to edit
@@ -102,7 +102,7 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
         return 1
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return courses.count
+        return displayedCourses.count
     }
  
     
@@ -122,7 +122,7 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClassTableCell", for: indexPath) as? ClassTableCell else{
             return UITableViewCell()
         }
-        cell.start(course: courses[indexPath.section])
+        cell.start(course: displayedCourses[indexPath.section])
         return cell
     }
     
@@ -195,5 +195,6 @@ extension CourseListController: AddCourseDelegate{
 extension CourseListController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         searchText = searchController.searchBar.text ?? ""
+        tableView.reloadData()
     }
 }

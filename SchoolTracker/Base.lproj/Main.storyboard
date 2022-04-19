@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VnV-W2-UJW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VnV-W2-UJW">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -443,7 +443,7 @@
                     <connections>
                         <outlet property="tableView" destination="MDb-9N-Qdz" id="Vg0-gx-LQV"/>
                         <segue destination="nyD-rJ-ohh" kind="show" id="tuI-vQ-uBk"/>
-                        <segue destination="q7C-KT-KhZ" kind="popoverPresentation" identifier="addAssessment" popoverAnchorView="MDb-9N-Qdz" id="pmv-J1-gkQ">
+                        <segue destination="8GJ-zO-LTp" kind="popoverPresentation" identifier="addAssessment" popoverAnchorView="MDb-9N-Qdz" id="Lre-MU-Jev">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -451,21 +451,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdr-dp-pA2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1714" y="-2"/>
-        </scene>
-        <!--Add Assessment View Controller-->
-        <scene sceneID="9el-XF-uve">
-            <objects>
-                <viewController id="q7C-KT-KhZ" customClass="AddAssessmentViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fQJ-hk-xOf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="YMQ-Up-muy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qbL-Kx-oEy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1713" y="-807"/>
         </scene>
         <!--Assessment-->
         <scene sceneID="UYF-Mn-1du">
@@ -504,7 +489,7 @@
             <objects>
                 <viewController id="8GJ-zO-LTp" customClass="AddAssessmentViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BFz-E7-Piu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFO-Bw-T3q">
@@ -514,7 +499,7 @@
                                     <navigationItem id="gR4-fp-YYi">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="wPY-GR-O2x">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Bek-BF-dSW">
-                                                <rect key="frame" x="20" y="5" width="92" height="34.333333333333336"/>
+                                                <rect key="frame" x="20" y="11" width="92" height="34.333333333333336"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
@@ -525,7 +510,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="a9U-cn-Haa">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="OJs-Wu-N6m">
-                                                <rect key="frame" x="302" y="5" width="92" height="34.333333333333336"/>
+                                                <rect key="frame" x="302" y="11" width="92" height="34.333333333333336"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>

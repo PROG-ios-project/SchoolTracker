@@ -27,8 +27,6 @@
 		B7220ED8280A31F500ED0F3B /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED7280A31F500ED0F3B /* Semester.swift */; };
 		B7220EDA280A321A00ED0F3B /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220ED9280A321A00ED0F3B /* Assessment.swift */; };
 		B7220EDC280DD15700ED0F3B /* AddAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EDB280DD15700ED0F3B /* AddAssessmentViewController.swift */; };
-		B7220EDE280DD16C00ED0F3B /* EditCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EDD280DD16C00ED0F3B /* EditCourseViewController.swift */; };
-		B7220EE0280DD18300ED0F3B /* EditAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EDF280DD18300ED0F3B /* EditAssessmentViewController.swift */; };
 		B7220EE2280DD19E00ED0F3B /* CourseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */; };
 		B7220EE4280DD1B300ED0F3B /* AssessmentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */; };
 		B7220EE6280DD1C700ED0F3B /* SemesterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */; };
@@ -79,8 +77,6 @@
 		B7220ED7280A31F500ED0F3B /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
 		B7220ED9280A321A00ED0F3B /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 		B7220EDB280DD15700ED0F3B /* AddAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssessmentViewController.swift; sourceTree = "<group>"; };
-		B7220EDD280DD16C00ED0F3B /* EditCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseViewController.swift; sourceTree = "<group>"; };
-		B7220EDF280DD18300ED0F3B /* EditAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAssessmentViewController.swift; sourceTree = "<group>"; };
 		B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoViewController.swift; sourceTree = "<group>"; };
 		B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentInfoViewController.swift; sourceTree = "<group>"; };
 		B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterListViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +108,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D329AB8280F517500EDC620 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				1D928FCE27FD139C00F388E0 /* AddCourseController.swift */,
+				B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */,
+				1D67A3DA27ED2FEB00A2FD7A /* CourseListController.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		1D329AB9280F517B00EDC620 /* Semester */ = {
+			isa = PBXGroup;
+			children = (
+				B7220EE7280DD3BB00ED0F3B /* SemesterInfoViewController.swift */,
+				B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */,
+			);
+			path = Semester;
+			sourceTree = "<group>";
+		};
+		1D329ABA280F518B00EDC620 /* Assessment */ = {
+			isa = PBXGroup;
+			children = (
+				B7220EDB280DD15700ED0F3B /* AddAssessmentViewController.swift */,
+				B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */,
+			);
+			path = Assessment;
+			sourceTree = "<group>";
+		};
 		1D67A3CA27ED2FEB00A2FD7A = {
 			isa = PBXGroup;
 			children = (
@@ -170,16 +194,10 @@
 		1D67A40927ED393F00A2FD7A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1D67A3DA27ED2FEB00A2FD7A /* CourseListController.swift */,
-				1D928FCE27FD139C00F388E0 /* AddCourseController.swift */,
+				1D329ABA280F518B00EDC620 /* Assessment */,
+				1D329AB9280F517B00EDC620 /* Semester */,
+				1D329AB8280F517500EDC620 /* Course */,
 				B7220ED3280A085700ED0F3B /* MainMenuViewController.swift */,
-				B7220EDB280DD15700ED0F3B /* AddAssessmentViewController.swift */,
-				B7220EDD280DD16C00ED0F3B /* EditCourseViewController.swift */,
-				B7220EDF280DD18300ED0F3B /* EditAssessmentViewController.swift */,
-				B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */,
-				B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */,
-				B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */,
-				B7220EE7280DD3BB00ED0F3B /* SemesterInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -346,7 +364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7220EE4280DD1B300ED0F3B /* AssessmentInfoViewController.swift in Sources */,
-				B7220EE0280DD18300ED0F3B /* EditAssessmentViewController.swift in Sources */,
 				B7220ED4280A085700ED0F3B /* MainMenuViewController.swift in Sources */,
 				B7220ED8280A31F500ED0F3B /* Semester.swift in Sources */,
 				B7220EDC280DD15700ED0F3B /* AddAssessmentViewController.swift in Sources */,
@@ -362,7 +379,6 @@
 				1DF20BA6280E316500DCCC58 /* AssessmentTableCell.swift in Sources */,
 				B7220EE6280DD1C700ED0F3B /* SemesterListViewController.swift in Sources */,
 				B7220EE8280DD3BB00ED0F3B /* SemesterInfoViewController.swift in Sources */,
-				B7220EDE280DD16C00ED0F3B /* EditCourseViewController.swift in Sources */,
 				1D10B9C927ED3C3900DCD022 /* CourseTableCell.swift in Sources */,
 				1D67A3D927ED2FEB00A2FD7A /* SceneDelegate.swift in Sources */,
 			);

@@ -17,21 +17,8 @@ class CourseInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
+        assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
         
-        let assessment = Assessment()
-        assessment.name = "Hello world"
-        assessment.dateDue = Date()
-        assessment.weight = 10
-        
-        let assessment2 = Assessment()
-        assessment2.name = "Hello world"
-        assessment2.dateDue = Date()
-        assessment2.isSubmitted = true
-        assessment2.grade = 63
-        assessment2.weight = 10
-        
-        assessments = [assessment2, assessment2, assessment, assessment,assessment, assessment, assessment, assessment,assessment, assessment,assessment, assessment,]
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = true
@@ -49,6 +36,12 @@ class CourseInfoViewController: UIViewController {
     //Update the course info with a grade if all the assessments were submitted
     override func viewDidAppear(_ animated: Bool) {
         updateCourse()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addAssessment"{
+            
+        }
     }
     
     //Update course and reload table view based on assessments

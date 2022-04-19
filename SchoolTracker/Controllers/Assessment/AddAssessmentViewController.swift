@@ -35,8 +35,8 @@ class AddAssessmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.nameField.delegate = self
-        self.CategoryField.delegate = self
+        //self.nameField.delegate = self
+        //self.CategoryField.delegate = self
         
     }
     
