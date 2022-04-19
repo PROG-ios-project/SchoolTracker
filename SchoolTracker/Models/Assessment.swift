@@ -21,6 +21,20 @@ class Assessment {
     var grade : Float = 0.0
     var category : String = ""
     
+    var status: AssessmentStatus{
+        get{
+            if self.isSubmitted{
+                return .submitted
+            }
+            else if !self.isSubmitted && self.dateDue < Date(){
+                return .late
+            }
+            else{
+                return .notSubmitted
+            }
+        }
+    }
+    
     init(){
         
     }
@@ -49,4 +63,11 @@ class Assessment {
         self.grade = grade
         self.category = category
     }
+}
+
+
+enum AssessmentStatus{
+    case late
+    case notSubmitted
+    case submitted
 }

@@ -268,7 +268,7 @@ class SchoolDB
             print("Successfully opened connection to database at \(mainDelegate.databasePath)")
             
             var queryStmt: OpaquePointer? = nil
-            var queryStmtString : String = "select * from course where courseid = ?"
+            var queryStmtString : String = "select * from assessment where courseid = ?"
             
             if sqlite3_prepare_v2(db, queryStmtString, -1, &queryStmt, nil) == SQLITE_OK {
                 

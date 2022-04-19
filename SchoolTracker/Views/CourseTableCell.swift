@@ -84,8 +84,8 @@ class ClassTableCell: UITableViewCell{
         //Set grade label
         gradeLbl = UILabel()
         
-        gradeLbl.font = UIFont.systemFont(ofSize: course.isComplete ? 32 : 16, weight: .medium)
-        gradeLbl.text = course.isComplete ? "\(Int(course.grade))%" : "Not completed"
+        gradeLbl.font = UIFont.systemFont(ofSize: 32, weight: .medium)
+        gradeLbl.text = "\(Int(course.grade))%"
         gradeLbl.translatesAutoresizingMaskIntoConstraints = false
         gradeLbl.sizeToFit()
         if !course.isComplete{

@@ -16,13 +16,20 @@ class NotificationManager{
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         for assessmnet in assessmnets {
-            if !assessmnet.isComplete && assessmnet.willNotify{
+            if !assessmnet.isComplete && assessmnet.willNotify && Date() < getNotificationDate(assessment: assessmnet) ?? assessmnet.dateDue{
                 guard let request = getNotificationRequest(assessment: assessmnet) else{
                     continue
                 }
                 UNUserNotificationCenter.current().add(request)
             }
         }
+    }
+    //returns notification date from assessment
+    private func getNotificationDate(assessment: Assessment) -> Date?{
+        guard let notificationDate = Calendar.current.date(byAdding: .minute, value: -assessment.notificationTime, to: assessment.dateDue) else{
+            return nil
+        }
+        return notificationDate
     }
     
     //returns notification request for an assessment
@@ -37,7 +44,7 @@ class NotificationManager{
         content.sound = .default
         content.badge = 1
         
-        guard let notificationDate = Calendar.current.date(byAdding: .minute, value: -assessment.notificationTime, to: assessment.dateDue) else{
+        guard let notificationDate = getNotificationDate(assessment: assessment) else{
             return nil
         }
         

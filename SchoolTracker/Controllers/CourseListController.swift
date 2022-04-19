@@ -67,7 +67,7 @@ class CourseListController: UIViewController {
             
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        tableView.reloadData()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addCourse" || segue.identifier == "editCourse"{
@@ -144,7 +144,7 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
         editAction.backgroundColor = .init(red: 0, green: 122/255, blue: 1, alpha: 1)
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { _, _, _ in
-            let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete this course?", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete this course? Assessments will be deleted too", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
                 guard let course = course else{
                     return
@@ -155,7 +155,7 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
                     self.tableView.reloadData()
                 }
                 SchoolDB.shared.deleteCourse(id: course.id)
-                
+                SchoolDB.shared.deleteAssessmentsForCourse(courseId: course.id)
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             

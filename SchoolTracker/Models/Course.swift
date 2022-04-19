@@ -23,7 +23,6 @@ class Course{
         self.semId = semId
         self.name = name
         self.code = code
-      //  self.endDate = endDate
         self.credits = credits
     }
     
@@ -37,6 +36,14 @@ class Course{
         self.isComplete = isComplete
     }
     
+    //Calculate total grade of the course based on assessment results
+    func calculateGrade(assessments: [Assessment]) -> Float{
+        var total: Float = 0.0
+        assessments.forEach({
+            total += $0.weight * ($0.grade / 100)
+        })
+        return total
+    }
     
     
 }

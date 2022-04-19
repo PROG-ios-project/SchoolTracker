@@ -17,63 +17,104 @@ class CourseInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
+        //assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
         
+        let assessment = Assessment()
+        assessment.name = "Hello world"
+        assessment.dateDue = Date()
+        assessment.weight = 10
+        
+        let assessment2 = Assessment()
+        assessment2.name = "Hello world"
+        assessment2.dateDue = Date()
+        assessment2.isSubmitted = true
+        assessment2.grade = 63
+        assessment2.weight = 10
+        
+        assessments = [assessment2, assessment2, assessment, assessment,assessment, assessment, assessment, assessment,assessment, assessment,assessment, assessment,]
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.bounces = false
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "assessmentCell")
+        tableView.bounces = true
+        tableView.separatorStyle = .none
+     
+        tableView.register(AssessmentTableCell.self, forCellReuseIdentifier: "assessmentCell")
     }
     
+    
+    //Add assessment action button
+    @objc func addAssessment(){
+        self.performSegue(withIdentifier: "addAssessment", sender: nil)
+    }
 
+    //Update the course info with a grade if all the assessments were submitted
+    override func viewDidAppear(_ animated: Bool) {
+        updateCourse()
+    }
+    
+    //Update course and reload table view based on assessments
+    func updateCourse(){
+        let oldCourseGrade = course.grade
+        
+        course.grade = course.calculateGrade(assessments: assessments)
+        
+        //If grade was changed after editing or completion status changed
+        if oldCourseGrade != course.grade {
+            _ = SchoolDB.shared.editCourse(newCourse: course)
+            tableView.reloadData()
+        }
+    }
 
 }
 
 
 extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 0 : assessments.count + 1
+        return section == 0 ? 0 : assessments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "assessmentCell") else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "assessmentCell") as? AssessmentTableCell else{
             return UITableViewCell()
         }
-        cell.contentView.subviews.forEach({$0.removeFromSuperview()})
-        cell.separatorInset.right = 5000
-        if indexPath.row == 0{
-            let addButton = UIButton(type: .contactAdd)
-            addButton.translatesAutoresizingMaskIntoConstraints = false
-            addButton.sizeToFit()
-            
-            cell.contentView.addSubview(addButton)
-            
-            addButton.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor).isActive = true
-            addButton.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
-            addButton.widthAnchor.constraint(equalToConstant: cell.frame.width).isActive = true
-            addButton.heightAnchor.constraint(equalToConstant: cell.frame.height).isActive = true
-        }
+        cell.start(assessment: assessments[indexPath.row])
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0{
-            return 50
-        }
-        return 200
+  
+        return 100
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 200 : 20
+        return section == 0 ? 200 : 50
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let assessment = (tableView.cellForRow(at: indexPath) as? AssessmentTableCell)?.assessment
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            self.assessments.remove(at: indexPath.row)
+            tableView.performBatchUpdates({
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }) { _ in
+                self.updateCourse()
+            }
+            
+            SchoolDB.shared.deleteAssessment(id: assessment?.id ?? 0)
+        }
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, _ in
+            
+        }
+        editAction.backgroundColor = .init(red: 0, green: 122/255, blue: 1, alpha: 1)
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let mainView = UIView()
+        mainView.backgroundColor = .white
         if section == 0{
-            
             //Rounded view
             let view = UIView()
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -195,7 +236,7 @@ extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
             gradeLabel.numberOfLines = 0
             
             let gradeAttributedString1 = NSMutableAttributedString(string: "Grade:\n", attributes: attributesForPartOne)
-            let gradeAttributedString2 = NSMutableAttributedString(string: course.isComplete ? "\(course.grade)%" : "Not completed", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .bold), .foregroundColor: UIColor.darkGray])
+            let gradeAttributedString2 = NSMutableAttributedString(string:  "\(course.grade)%", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .bold), .foregroundColor: UIColor.darkGray])
             gradeAttributedString1.append(gradeAttributedString2)
             gradeLabel.attributedText = gradeAttributedString1
             gradeLabel.textAlignment = .center
@@ -219,9 +260,23 @@ extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
             titleLabel.sizeToFit()
             mainView.addSubview(titleLabel)
             
-            titleLabel.centerYAnchor.constraint(equalTo: mainView.centerYAnchor).isActive = true
+            titleLabel.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
             titleLabel.widthAnchor.constraint(equalToConstant: titleLabel.frame.width).isActive = true
             titleLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20).isActive = true
+            
+            //Add button
+            let addButton = UIButton(type: .contactAdd)
+            addButton.translatesAutoresizingMaskIntoConstraints = false
+            addButton.sizeToFit()
+            
+            mainView.addSubview(addButton)
+            
+            addButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+            addButton.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
+            addButton.trailingAnchor.constraint(equalTo: mainView.trailingAnchor).isActive = true
+            addButton.heightAnchor.constraint(equalToConstant: addButton.frame.height).isActive = true
+            
+            addButton.addTarget(self, action: #selector(addAssessment), for: .touchUpInside)
         }
         
         return mainView
