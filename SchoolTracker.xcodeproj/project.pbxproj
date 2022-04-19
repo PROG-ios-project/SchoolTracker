@@ -32,8 +32,10 @@
 		B7220EE2280DD19E00ED0F3B /* CourseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */; };
 		B7220EE4280DD1B300ED0F3B /* AssessmentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */; };
 		B7220EE6280DD1C700ED0F3B /* SemesterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */; };
-		B7220EE8280DD3BB00ED0F3B /* SemesterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE7280DD3BB00ED0F3B /* SemesterInfoViewController.swift */; };
+		B7220EE8280DD3BB00ED0F3B /* AddSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE7280DD3BB00ED0F3B /* AddSemesterViewController.swift */; };
 		B7220EEA280DE7E500ED0F3B /* SchoolDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 1DD99711280A3C7F000F550C /* SchoolDatabase.db */; };
+		B7220EEE280F1DA200ED0F3B /* SemesterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EED280F1DA200ED0F3B /* SemesterTableCell.swift */; };
+		B7220EF0280F449300ED0F3B /* GPAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EEF280F449300ED0F3B /* GPAWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +86,9 @@
 		B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoViewController.swift; sourceTree = "<group>"; };
 		B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentInfoViewController.swift; sourceTree = "<group>"; };
 		B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterListViewController.swift; sourceTree = "<group>"; };
-		B7220EE7280DD3BB00ED0F3B /* SemesterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterInfoViewController.swift; sourceTree = "<group>"; };
+		B7220EE7280DD3BB00ED0F3B /* AddSemesterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSemesterViewController.swift; sourceTree = "<group>"; };
+		B7220EED280F1DA200ED0F3B /* SemesterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterTableCell.swift; sourceTree = "<group>"; };
+		B7220EEF280F449300ED0F3B /* GPAWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +183,8 @@
 				B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */,
 				B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */,
 				B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */,
-				B7220EE7280DD3BB00ED0F3B /* SemesterInfoViewController.swift */,
+				B7220EE7280DD3BB00ED0F3B /* AddSemesterViewController.swift */,
+				B7220EEF280F449300ED0F3B /* GPAWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			children = (
 				1D10B9C827ED3C3900DCD022 /* CourseTableCell.swift */,
 				1DF20BA5280E316500DCCC58 /* AssessmentTableCell.swift */,
+				B7220EED280F1DA200ED0F3B /* SemesterTableCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			files = (
 				B7220EE4280DD1B300ED0F3B /* AssessmentInfoViewController.swift in Sources */,
 				B7220EE0280DD18300ED0F3B /* EditAssessmentViewController.swift in Sources */,
+				B7220EF0280F449300ED0F3B /* GPAWebViewController.swift in Sources */,
 				B7220ED4280A085700ED0F3B /* MainMenuViewController.swift in Sources */,
 				B7220ED8280A31F500ED0F3B /* Semester.swift in Sources */,
 				B7220EDC280DD15700ED0F3B /* AddAssessmentViewController.swift in Sources */,
@@ -361,10 +368,11 @@
 				B7220EDA280A321A00ED0F3B /* Assessment.swift in Sources */,
 				1DF20BA6280E316500DCCC58 /* AssessmentTableCell.swift in Sources */,
 				B7220EE6280DD1C700ED0F3B /* SemesterListViewController.swift in Sources */,
-				B7220EE8280DD3BB00ED0F3B /* SemesterInfoViewController.swift in Sources */,
+				B7220EE8280DD3BB00ED0F3B /* AddSemesterViewController.swift in Sources */,
 				B7220EDE280DD16C00ED0F3B /* EditCourseViewController.swift in Sources */,
 				1D10B9C927ED3C3900DCD022 /* CourseTableCell.swift in Sources */,
 				1D67A3D927ED2FEB00A2FD7A /* SceneDelegate.swift in Sources */,
+				B7220EEE280F1DA200ED0F3B /* SemesterTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

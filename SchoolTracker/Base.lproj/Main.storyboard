@@ -32,26 +32,37 @@
                     <view key="view" contentMode="scaleToFill" id="1hT-VO-dQr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XWK-2u-09N">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wBq-Dr-rbo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="List of Semesters" id="aHc-9P-43V">
                         <barButtonItem key="backBarButtonItem" title="Home" id="1DI-a5-2Ww"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iaD-zV-C63">
+                            <connections>
+                                <segue destination="82v-cz-4if" kind="popoverPresentation" popoverAnchorBarButtonItem="iaD-zV-C63" id="HIP-zl-1Ga">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="82v-cz-4if" kind="show" id="lVg-cJ-vWe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjB-VX-V6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="-807"/>
+            <point key="canvasLocation" x="5.7971014492753632" y="-807.06521739130437"/>
         </scene>
         <!--Semester-->
         <scene sceneID="DBA-e2-6Vg">
             <objects>
-                <viewController id="82v-cz-4if" customClass="SemesterInfoViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="82v-cz-4if" customClass="AddSemesterViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JPp-gJ-pMT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="wMK-YW-bPt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -173,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="749" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="bNG-LX-dvi">
             <objects>
-                <viewController id="Izj-Xi-csK" sceneMemberID="viewController">
+                <viewController id="Izj-Xi-csK" customClass="GPAWebViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wj9-8T-BKj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -209,14 +220,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrl-gv-yB6">
-                                <rect key="frame" x="144" y="477" width="128" height="31"/>
+                                <rect key="frame" x="105" y="477" width="206" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="GPA Calculation"/>
+                                <buttonConfiguration key="configuration" style="plain" title="GPA Calculation Explanation"/>
                                 <connections>
                                     <segue destination="Izj-Xi-csK" kind="show" id="WiE-vT-Ko7"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VSD-hw-Bnm">
+                                <rect key="frame" x="87" y="156" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">School Tracker is designed to help you keep track of your courses and assignments so you keep on top of your school work. It even archives previous semesters so that you can go back and look at the progress you've made.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="App made by Thomas Forber, Danylo Andriushchenko, Lam Bich, and Aswin Rajan." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gWo-nD-3YH">
+                                <rect key="frame" x="87" y="304" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FKX-po-7RY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -795,6 +823,9 @@
         <segue reference="eY0-4c-G8C"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

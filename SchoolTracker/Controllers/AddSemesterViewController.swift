@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SemesterInfoViewController: UIViewController {
+class AddSemesterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
