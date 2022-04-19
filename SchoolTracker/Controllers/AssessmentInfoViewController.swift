@@ -8,6 +8,17 @@
 import UIKit
 
 class AssessmentInfoViewController: UIViewController {
+    
+    @IBOutlet var nameLbl : UILabel?
+    @IBOutlet var categoryLbl : UILabel?
+    @IBOutlet var dateDueLbl : UILabel?
+    @IBOutlet var dateSubmittedLbl : UILabel?
+    @IBOutlet var gradeLbl : UILabel?
+    @IBOutlet var isCompleteLbl : UILabel?
+    @IBOutlet var isSubmittedLbl : UILabel?
+    @IBOutlet var notifTimeLbl : UILabel?
+    @IBOutlet var weightLbl : UILabel?
+    @IBOutlet var willNotifyLbl : UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
