@@ -23,7 +23,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         databasePath = documentsDir.appending("/" + databaseName!)
         checkAndCreateDatabase()
         
+        //Request notifications
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { granted, error in
+            DispatchQueue.main.async {
+                if granted {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+                else {
+                    
+                }
+            }
+        })
+        
         return true
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+
+        
+        completionHandler( [.alert, .badge, .sound])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
     }
     
     func checkAndCreateDatabase()
@@ -62,20 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-    
-    
-    //Will resign active - set notifications
-    func applicationWillResignActive(_ application: UIApplication) {
-        let courses = SchoolDB.shared.getAllCourses()
-        var assessments: [Assessment] = []
-        courses.forEach({
-            let assessmentList = SchoolDB.shared.getAssessmentList(courseId: $0.id)
-            for assessment in assessmentList{
-                assessments.append(assessment)
-            }
-        })
-        NotificationManager.shared.setUpNotifications(assessmnets: assessments)
-    }
 
 }
 

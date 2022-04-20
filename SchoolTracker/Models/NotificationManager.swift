@@ -14,19 +14,19 @@ class NotificationManager{
     //Set up notifications for all assessments
     func setUpNotifications(assessmnets: [Assessment]){
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        
         for assessmnet in assessmnets {
             if !assessmnet.isComplete && assessmnet.willNotify && Date() < getNotificationDate(assessment: assessmnet) ?? assessmnet.dateDue{
                 guard let request = getNotificationRequest(assessment: assessmnet) else{
                     continue
                 }
                 UNUserNotificationCenter.current().add(request)
+                print("Successfully added notification")
             }
         }
     }
     //returns notification date from assessment
     private func getNotificationDate(assessment: Assessment) -> Date?{
-        guard let notificationDate = Calendar.current.date(byAdding: .minute, value: -assessment.notificationTime, to: assessment.dateDue) else{
+        guard let notificationDate = Calendar.current.date(byAdding: .minute, value: -1 * assessment.notificationTime, to: assessment.dateDue) else{
             return nil
         }
         return notificationDate
@@ -35,7 +35,7 @@ class NotificationManager{
     //returns notification request for an assessment
     private func getNotificationRequest(assessment: Assessment) -> UNNotificationRequest?{
         let content = UNMutableNotificationContent()
-        content.title = "Assessment due date is approaching"
+        content.title = "Due date is soon"
         content.body = assessment.notificationTime == 0 ? "Activity due now" : "Activity due in \(assessment.notificationTime) minutes"
         
         
@@ -50,6 +50,8 @@ class NotificationManager{
         
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.weekOfMonth,.day,.hour,.minute], from: notificationDate), repeats: false)
+
+        
         return UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
     }
     

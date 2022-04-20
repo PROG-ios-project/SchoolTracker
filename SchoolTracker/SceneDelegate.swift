@@ -32,13 +32,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
+        let courses = SchoolDB.shared.getAllCourses()
+        var assessments: [Assessment] = []
+        courses.forEach({
+            let assessmentList = SchoolDB.shared.getAssessmentList(courseId: $0.id)
+            for assessment in assessmentList{
+                assessments.append(assessment)
+            }
+        })
+
+        NotificationManager.shared.setUpNotifications(assessmnets: assessments)
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

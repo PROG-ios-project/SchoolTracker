@@ -145,7 +145,7 @@ class AssessmentTableCell: UITableViewCell{
         statusLbl = UILabel()
         statusLbl.text = statusText
         statusLbl.translatesAutoresizingMaskIntoConstraints = false
-        statusLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        statusLbl.widthAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
         statusLbl.font = UIFont.systemFont(ofSize: 18)
         statusLbl.textColor = color
         statusLbl.sizeToFit()

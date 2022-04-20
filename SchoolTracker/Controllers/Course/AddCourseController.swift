@@ -63,6 +63,8 @@ class AddCourseController: UIViewController{
             title = "Missing Course code"
         case .noName:
             title = "Missing Course name"
+        default:
+            title = "Try again"
         }
         
         let alertController = UIAlertController(title: title, message: "Make sure that you have filled all entries", preferredStyle: .alert)
@@ -114,4 +116,5 @@ extension AddCourseController: UITextFieldDelegate{
 enum AlertReason{
     case noName
     case noCode
+    case noDueDate
 }

@@ -14,11 +14,13 @@ class CourseInfoViewController: UIViewController {
     
     var course: Course!
     var assessments: [Assessment] = []
+    
+    var selectedAssessment: Assessment?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
-        
+        print(assessments.count)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = true
@@ -33,14 +35,17 @@ class CourseInfoViewController: UIViewController {
         self.performSegue(withIdentifier: "addAssessment", sender: nil)
     }
 
-    //Update the course info with a grade if all the assessments were submitted
-    override func viewDidAppear(_ animated: Bool) {
-        updateCourse()
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addAssessment"{
-            
+        //Set delegate for Add assessment controller
+        if segue.identifier == "addAssessment" || segue.identifier == "editAssessment"{
+            (segue.destination as? AddAssessmentViewController)?.delegate = self
+        }
+        
+        if segue.identifier == "editAssessment"{
+            (segue.destination as? AddAssessmentViewController)?.isAssessmentEditing = true
+            (segue.destination as? AddAssessmentViewController)?.assessment = selectedAssessment ?? Assessment()
+            selectedAssessment = nil
         }
     }
     
@@ -53,7 +58,6 @@ class CourseInfoViewController: UIViewController {
         //If grade was changed after editing or completion status changed
         if oldCourseGrade != course.grade {
             _ = SchoolDB.shared.editCourse(newCourse: course)
-            tableView.reloadData()
         }
     }
 
@@ -98,7 +102,8 @@ extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
             SchoolDB.shared.deleteAssessment(id: assessment?.id ?? 0)
         }
         let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, _ in
-            
+            self.selectedAssessment = assessment
+            self.performSegue(withIdentifier: "editAssessment", sender: nil)
         }
         editAction.backgroundColor = .init(red: 0, green: 122/255, blue: 1, alpha: 1)
         
@@ -229,7 +234,7 @@ extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
             gradeLabel.numberOfLines = 0
             
             let gradeAttributedString1 = NSMutableAttributedString(string: "Grade:\n", attributes: attributesForPartOne)
-            let gradeAttributedString2 = NSMutableAttributedString(string:  "\(course.grade)%", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .bold), .foregroundColor: UIColor.darkGray])
+            let gradeAttributedString2 = NSMutableAttributedString(string:  "\(String(format: "%.2f", arguments: [course.grade]))%", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .bold), .foregroundColor: UIColor.darkGray])
             gradeAttributedString1.append(gradeAttributedString2)
             gradeLabel.attributedText = gradeAttributedString1
             gradeLabel.textAlignment = .center
@@ -276,4 +281,22 @@ extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+
+//Will save assessment: save to database and reload table view
+extension CourseInfoViewController: AddAssessmentDelegate{
+    func willSaveAssessment(assessment: Assessment, isEditing: Bool) {
+        assessment.courseId = course.id
+        
+        if !isEditing{
+            self.assessments.append(assessment)
+            _ = SchoolDB.shared.addAssessment(assessment: assessment)
+        }
+        else{
+            _ = SchoolDB.shared.editAssessment(newAssess: assessment)
+        }
+        updateCourse()
+        self.tableView.reloadData()
+        
+    }
 }

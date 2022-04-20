@@ -18,7 +18,7 @@ class SchoolDB
     
     init(){
         mainDelegate = UIApplication.shared.delegate as! AppDelegate
-        dateFormatter.dateFormat = "dd/MM/yy hh:mm"
+        dateFormatter.dateFormat = "dd/MM/yy hh:mm a"
     }
     
     
