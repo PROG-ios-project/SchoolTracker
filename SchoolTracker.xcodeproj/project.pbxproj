@@ -32,6 +32,7 @@
 		B7220EE4280DD1B300ED0F3B /* AssessmentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */; };
 		B7220EE6280DD1C700ED0F3B /* SemesterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */; };
 		B7220EEA280DE7E500ED0F3B /* SchoolDatabase.db in Resources */ = {isa = PBXBuildFile; fileRef = 1DD99711280A3C7F000F550C /* SchoolDatabase.db */; };
+		B7220EF22810886800ED0F3B /* GPAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7220EF12810886800ED0F3B /* GPAWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		B7220EE1280DD19E00ED0F3B /* CourseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoViewController.swift; sourceTree = "<group>"; };
 		B7220EE3280DD1B300ED0F3B /* AssessmentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentInfoViewController.swift; sourceTree = "<group>"; };
 		B7220EE5280DD1C700ED0F3B /* SemesterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterListViewController.swift; sourceTree = "<group>"; };
+		B7220EF12810886800ED0F3B /* GPAWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				1D329ABA280F518B00EDC620 /* Assessment */,
 				1D329AB9280F517B00EDC620 /* Semester */,
 				1D329AB8280F517500EDC620 /* Course */,
+				B7220EF12810886800ED0F3B /* GPAWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				1D98AD8F280FB8030076323D /* AddSemesterController.swift in Sources */,
 				B7220EDA280A321A00ED0F3B /* Assessment.swift in Sources */,
 				1DF20BA6280E316500DCCC58 /* AssessmentTableCell.swift in Sources */,
+				B7220EF22810886800ED0F3B /* GPAWebViewController.swift in Sources */,
 				1D98AD91280FB9880076323D /* SemesterTableCell.swift in Sources */,
 				B7220EE6280DD1C700ED0F3B /* SemesterListViewController.swift in Sources */,
 				1D10B9C927ED3C3900DCD022 /* CourseTableCell.swift in Sources */,
