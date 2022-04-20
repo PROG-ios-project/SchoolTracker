@@ -33,14 +33,14 @@ class AssessmentInfoViewController: UIViewController {
         categoryLbl!.text = categoryLbl!.text! + assessment.category
         dateDueLbl!.text = dateDueLbl!.text! + dateFormatter.string(from: assessment.dateDue)
         dateSubmittedLbl!.text = dateSubmittedLbl!.text! + (assessment.dateSubmitted == nil ? "N/A" : dateFormatter.string(from: assessment.dateSubmitted!))
-        gradeLbl!.text = gradeLbl!.text! + String(format: "%0.2f (%s)", assessment.grade, letterGrade(grade: assessment.grade))
+        gradeLbl!.text = gradeLbl!.text! + String(format: "%.2f", arguments: [assessment.grade]) + " \(letterGrade(grade: assessment.grade))"
         isCompleteLbl!.text = isCompleteLbl!.text! + (assessment.isComplete ? "Complete" : "Incomplete")
         isSubmittedLbl!.text = isSubmittedLbl!.text! + (assessment.isSubmitted ? "Submitted" : "Not Submitted")
         notifTimeLbl!.text = notifTimeLbl!.text! + (assessment.willNotify ? String(format: "%d minutes before", assessment.notificationTime) : "N/A" )
         weightLbl!.text = weightLbl!.text! + String(format: "%0.2f %", assessment.weight)
         willNotifyLbl!.text = willNotifyLbl!.text! + (assessment.willNotify ? "Yes" : "No")
         
-        
+        self.view.subviews.forEach({($0 as? UILabel)?.sizeToFit()})
     }
     
     func letterGrade(grade: Float) -> String {

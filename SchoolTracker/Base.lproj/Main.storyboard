@@ -516,7 +516,7 @@
                     <navigationItem key="navigationItem" title="Course" id="pSW-bR-H8h"/>
                     <connections>
                         <outlet property="tableView" destination="MDb-9N-Qdz" id="Vg0-gx-LQV"/>
-                        <segue destination="nyD-rJ-ohh" kind="show" id="tuI-vQ-uBk"/>
+                        <segue destination="nyD-rJ-ohh" kind="show" identifier="assessmentInfo" id="tuI-vQ-uBk"/>
                         <segue destination="8GJ-zO-LTp" kind="popoverPresentation" identifier="addAssessment" popoverAnchorView="MDb-9N-Qdz" id="K25-Y5-pO1">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>

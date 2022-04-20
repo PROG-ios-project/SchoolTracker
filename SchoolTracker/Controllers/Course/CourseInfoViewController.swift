@@ -53,6 +53,9 @@ class CourseInfoViewController: UIViewController {
             (segue.destination as? AddAssessmentViewController)?.assessment = selectedAssessment ?? Assessment()
             selectedAssessment = nil
         }
+        else if segue.identifier == "assessmentInfo"{
+            (segue.destination as? AssessmentInfoViewController)?.assessment = selectedAssessment
+        }
     }
     //Update course and semester if assessment weight or grade was changed
     func updateCourseAndSemester(){
@@ -87,6 +90,12 @@ extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 200 : 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedAssessment = assessments[indexPath.row]
+        
+        self.performSegue(withIdentifier: "assessmentInfo", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
