@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="749" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="bNG-LX-dvi">
             <objects>
-                <viewController id="Izj-Xi-csK" sceneMemberID="viewController">
+                <viewController id="Izj-Xi-csK" customClass="GPAWebViewController" customModule="SchoolTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wj9-8T-BKj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,6 +252,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="YT7-Um-LRf"/>
+                    <connections>
+                        <outlet property="webView" destination="7OS-Ac-JK2" id="nvi-5V-HHV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C10-Fn-oeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
