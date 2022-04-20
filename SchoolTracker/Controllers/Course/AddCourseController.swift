@@ -117,4 +117,5 @@ enum AlertReason{
     case noName
     case noCode
     case noDueDate
+    case noYear
 }

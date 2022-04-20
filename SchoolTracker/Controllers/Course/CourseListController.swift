@@ -50,8 +50,7 @@ class CourseListController: UIViewController {
         self.navigationItem.searchController = searchController
         
         
-        self.courses = SchoolDB.shared.getAllCourses()
-        
+        self.courses = SchoolDB.shared.getCourseList(semId: currentSemesterID)
         //Setting up table view
         tableView.backgroundColor = .clear
         tableView.delegate = self
@@ -64,12 +63,23 @@ class CourseListController: UIViewController {
             tableView.sectionHeaderTopPadding = 0
         }
     }
+    
+    //Update course and semester if assessment weight or grade was changed
+    func updateCourseAndSemester(course: Course){
+        course.updateGrade()
+        let semester = SchoolDB.shared.getOneSemester(id: course.semId)
+        semester?.updateGPA()
+    }
             
     
     override func viewDidAppear(_ animated: Bool) {
+        self.courses = SchoolDB.shared.getCourseList(semId: currentSemesterID)
         tableView.reloadData()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        (segue.destination as? AddCourseController)?.isCourseEditing = false
+        
         if segue.identifier == "addCourse" || segue.identifier == "editCourse"{
             (segue.destination as? AddCourseController)?.delegate = self
         }
@@ -156,6 +166,9 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
                 }
                 SchoolDB.shared.deleteCourse(id: course.id)
                 SchoolDB.shared.deleteAssessmentsForCourse(courseId: course.id)
+                
+                let semester = SchoolDB.shared.getOneSemester(id: course.semId)
+                semester?.updateGPA()
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             
@@ -175,6 +188,7 @@ extension CourseListController: UITableViewDelegate, UITableViewDataSource{
 
 extension CourseListController: AddCourseDelegate{
     func willSaveCourse(course: Course, isEditing: Bool) {
+        course.semId = currentSemesterID
         
         if isEditing{
             _ = SchoolDB.shared.editCourse(newCourse: course)
@@ -184,8 +198,8 @@ extension CourseListController: AddCourseDelegate{
             self.courses.append(course)
         }
         
-        
-
+        //Automatically update grade if credits where changed
+        updateCourseAndSemester(course: course)
         tableView.reloadData()
     }
     

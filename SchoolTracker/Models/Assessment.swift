@@ -21,6 +21,15 @@ class Assessment {
     var grade : Float = 0.0
     var category : String = ""
     
+    //Get course
+    var course: Course?{
+        get{
+            return SchoolDB.shared.getSingleCourse(id: courseId)
+        }
+    }
+    
+    
+    //Status of the submission
     var status: AssessmentStatus{
         get{
             if self.isSubmitted{

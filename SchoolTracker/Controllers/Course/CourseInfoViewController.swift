@@ -20,7 +20,7 @@ class CourseInfoViewController: UIViewController {
         super.viewDidLoad()
 
         assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
-        print(assessments.count)
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = true
@@ -34,10 +34,16 @@ class CourseInfoViewController: UIViewController {
     @objc func addAssessment(){
         self.performSegue(withIdentifier: "addAssessment", sender: nil)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
+        tableView.reloadData()
+    }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Set delegate for Add assessment controller
+        (segue.destination as? AddAssessmentViewController)?.isAssessmentEditing = false
         if segue.identifier == "addAssessment" || segue.identifier == "editAssessment"{
             (segue.destination as? AddAssessmentViewController)?.delegate = self
         }
@@ -48,17 +54,11 @@ class CourseInfoViewController: UIViewController {
             selectedAssessment = nil
         }
     }
-    
-    //Update course and reload table view based on assessments
-    func updateCourse(){
-        let oldCourseGrade = course.grade
-        
-        course.grade = course.calculateGrade(assessments: assessments)
-        
-        //If grade was changed after editing or completion status changed
-        if oldCourseGrade != course.grade {
-            _ = SchoolDB.shared.editCourse(newCourse: course)
-        }
+    //Update course and semester if assessment weight or grade was changed
+    func updateCourseAndSemester(){
+        course.updateGrade()
+        let semester = SchoolDB.shared.getOneSemester(id: course.semId)
+        semester?.updateGPA()
     }
 
 }
@@ -96,7 +96,7 @@ extension CourseInfoViewController: UITableViewDelegate, UITableViewDataSource{
             tableView.performBatchUpdates({
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }) { _ in
-                self.updateCourse()
+                self.updateCourseAndSemester()
             }
             
             SchoolDB.shared.deleteAssessment(id: assessment?.id ?? 0)
@@ -295,7 +295,10 @@ extension CourseInfoViewController: AddAssessmentDelegate{
         else{
             _ = SchoolDB.shared.editAssessment(newAssess: assessment)
         }
-        updateCourse()
+        
+        
+     
+        self.updateCourseAndSemester()
         self.tableView.reloadData()
         
     }
