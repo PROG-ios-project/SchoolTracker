@@ -2,7 +2,7 @@
 //  CourseInfoViewController.swift
 //  SchoolTracker
 //
-//  Created by Penric on 4/18/22.
+//  Created by Danylo Andriushchenko on 4/18/22.
 //
 
 import UIKit

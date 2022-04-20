@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SchoolTracker
 //
-//  Created by Danil Andriuschenko on 24.03.2022.
+//  Created by Danylo Andriuschenko on 24.03.2022.
 //
 
 import UIKit

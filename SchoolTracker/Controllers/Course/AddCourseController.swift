@@ -2,7 +2,7 @@
 //  AddCourseController.swift
 //  SchoolTracker
 //
-//  Created by Danil Andriuschenko on 05.04.2022.
+//  Created by Danylo Andriuschenko on 05.04.2022.
 //
 
 import Foundation

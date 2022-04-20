@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  SchoolTracker
 //
-//  Created by Danil Andriuschenko on 24.03.2022.
+//  Created by Danyl Andriuschenko on 24.03.2022.
 //
 
 import UIKit

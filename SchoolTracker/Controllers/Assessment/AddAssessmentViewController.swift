@@ -2,7 +2,7 @@
 //  AddAssessmentViewController.swift
 //  SchoolTracker
 //
-//  Created by Penric on 4/18/22.
+//  Created by Lam Bich on 4/18/22.
 //
 import Foundation
 import UIKit
