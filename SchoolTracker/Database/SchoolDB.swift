@@ -6,6 +6,7 @@
 //
 /*
  Custom class specifically for all SQLite3 database interactions since they would clutter up the AppDelegate if they were all put in there.
+ Database object created by Thomas as well. Database designed by Thomas, with input from rest of team.
  */
 
 import UIKit
