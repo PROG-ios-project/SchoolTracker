@@ -9,7 +9,7 @@ import UIKit
 
 class AddAssessmentViewController: UIViewController {
 
-    
+    // Variable for input data for assessment
     @IBOutlet var titleLbl: UILabel!
     @IBOutlet var nameField : UITextField!
     @IBOutlet var WeightField : UISlider!
@@ -29,6 +29,7 @@ class AddAssessmentViewController: UIViewController {
     @IBOutlet var lbGradeValue : UILabel!
     @IBOutlet var lbWeightValue : UILabel!
     
+    // calling assessment class 
     var assessment: Assessment = Assessment()
     
     var delegate: AddAssessmentDelegate?
@@ -59,8 +60,7 @@ class AddAssessmentViewController: UIViewController {
         else{
             self.DateTimeDueField.date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
             
-        }
-        
+        }       
         
     }
     
@@ -104,12 +104,14 @@ class AddAssessmentViewController: UIViewController {
     
 
     //Round out values
+    // Update label from slider of weight
     @IBAction func WeightChange(_ sender: UISlider) {
         let Weight = WeightField.value
         let strWeight = String(format: "%0.0f", Weight) + "%"
         lbWeightValue.text = strWeight
         lbWeightValue.sizeToFit()
     }
+    // Update label from slider of grade
     @IBAction func GradeChange(_ sender: UISlider) {
         let Grade = GradeField.value
         let strGrade = String(format: "%0.01f", Grade) + "%"
@@ -144,6 +146,7 @@ class AddAssessmentViewController: UIViewController {
             
             return
         }
+        // Convert date and time to string
         let dateFormmater = DateFormatter()
         dateFormmater.dateFormat = "MM-dd-yyyy HH:mm a"
         duetime = dateFormmater.string(from: DateTimeDueField.date)
@@ -155,6 +158,7 @@ class AddAssessmentViewController: UIViewController {
         
         let notificationTimeOption = NotificationTimeField.selectedSegmentIndex
         
+        // Assign data from input to database with assessmnet table
         self.assessment.notificationTime = convertToMinutes(index: notificationTimeOption)
         self.assessment.name = name
         self.assessment.dateDue = DateTimeDueField.date
@@ -163,8 +167,7 @@ class AddAssessmentViewController: UIViewController {
         self.assessment.category = CategoryField.text!
         self.assessment.isComplete = isCompleteField.isOn
         self.assessment.isSubmitted = isSubmittedField.isOn
-        self.assessment.willNotify = willNotifyField.isOn
-       
+        self.assessment.willNotify = willNotifyField.isOn       
         self.assessment.weight = WeightField.value
         
         
@@ -175,8 +178,8 @@ class AddAssessmentViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         delegate = nil
     }
-
 }
+
 protocol AddAssessmentDelegate{
     func willSaveAssessment(assessment: Assessment, isEditing: Bool)
 }
