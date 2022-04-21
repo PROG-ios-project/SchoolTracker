@@ -2,7 +2,7 @@
 //  SemesterListViewController.swift
 //  SchoolTracker
 //
-//  Created by Penric on 4/18/22.
+//  Created by Danylo Andriushchenko on 4/12/22.
 //  Controller that shows semester list
 
 import UIKit
@@ -65,6 +65,7 @@ extension SemesterListViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
+//Will save semester to the list
 extension SemesterListViewController: SemesterAddDelegate
 {
     func willSaveSemester(semester: Semester) {
