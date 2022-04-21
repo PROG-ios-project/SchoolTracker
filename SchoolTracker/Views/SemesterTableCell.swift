@@ -4,6 +4,10 @@
 //
 //  Created by Danylo Andriuschenko on 19.04.2022.
 //
+/*
+Custom table view cell class for semester object. Dsiplays title and grade
+ */
+
 
 import Foundation
 import UIKit

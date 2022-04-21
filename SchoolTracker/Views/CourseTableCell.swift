@@ -2,8 +2,11 @@
 //  ClassTableCell.swift
 //  SchoolTracker
 //
-//  Created by Danil Andriuschenko on 24.03.2022.
+//  Created by Danylo Andriuschenko on 24.03.2022.
 //
+/*
+Custom table view cell class for course object. Dsiplays name, code, credits and grade
+ */
 
 import Foundation
 import UIKit

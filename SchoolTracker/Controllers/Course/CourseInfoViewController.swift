@@ -3,7 +3,7 @@
 //  SchoolTracker
 //
 //  Created by Danylo Andriushchenko on 4/18/22.
-//
+//  Controller that shows detailed info about the course. Displays assessment list related to the course
 
 import UIKit
 

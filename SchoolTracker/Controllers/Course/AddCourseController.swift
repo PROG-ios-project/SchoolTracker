@@ -3,7 +3,7 @@
 //  SchoolTracker
 //
 //  Created by Danylo Andriuschenko on 05.04.2022.
-//
+//  Controller that adds new course
 
 import Foundation
 import UIKit

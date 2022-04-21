@@ -3,7 +3,7 @@
 //  SchoolTracker
 //
 //  Created by Danil Andriuschenko on 19.04.2022.
-//
+//  Controller that adds Semester to the list
 
 import Foundation
 import UIKit

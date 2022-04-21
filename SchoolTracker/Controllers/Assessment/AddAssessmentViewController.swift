@@ -3,7 +3,7 @@
 //  SchoolTracker
 //
 //  Created by Lam Bich on 4/18/22.
-//
+// Controller that adds a new assessment to the list
 import Foundation
 import UIKit
 

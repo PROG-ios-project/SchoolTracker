@@ -2,9 +2,11 @@
 //  AssessmentTableCell.swift
 //  SchoolTracker
 //
-//  Created by Danil Andriuschenko on 18.04.2022.
+//  Created by Danyl Andriuschenko on 18.04.2022.
 //
-
+/*
+Custom table view cell class for assessment object. Dsiplays name, due date or grade, weight and submission status
+ */
 import Foundation
 import UIKit
 class AssessmentTableCell: UITableViewCell{

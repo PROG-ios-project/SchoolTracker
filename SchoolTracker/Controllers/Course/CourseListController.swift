@@ -3,7 +3,7 @@
 //  SchoolTracker
 //
 //  Created by Danyl Andriuschenko on 24.03.2022.
-//
+//  Controller that shows course list with search controller
 
 import UIKit
 

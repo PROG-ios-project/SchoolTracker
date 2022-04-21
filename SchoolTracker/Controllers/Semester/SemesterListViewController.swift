@@ -3,7 +3,7 @@
 //  SchoolTracker
 //
 //  Created by Penric on 4/18/22.
-//
+//  Controller that shows semester list
 
 import UIKit
 
