@@ -2,12 +2,14 @@
 //  AssessmentInfoViewController.swift
 //  SchoolTracker
 //
-//  Created by Penric on 4/18/22.
-// Controller that shows detailed information about the assessment
+//  Created by Thomas Forber on 4/18/22.
+// Controller that shows detailed information about the selected assessment
 
 import UIKit
 
 class AssessmentInfoViewController: UIViewController {
+    
+    //Outlet variables for all the labels in the view
     @IBOutlet var nameLbl : UILabel?
     @IBOutlet var categoryLbl : UILabel?
     @IBOutlet var dateDueLbl : UILabel?
@@ -19,16 +21,20 @@ class AssessmentInfoViewController: UIViewController {
     @IBOutlet var weightLbl : UILabel?
     @IBOutlet var willNotifyLbl : UILabel?
     
+    //date format variable for outputting the date from dateDue and dateSubmitted fields
     var dateFormatter = DateFormatter()
     
-
+    //variable for the passed assessment
     var assessment: Assessment!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //set the proper date format
         dateFormatter.dateFormat = "dd/MM/yy hh:mm a"
         
+        //assigning all the values to the labels
         nameLbl!.text = nameLbl!.text! + assessment.name
         categoryLbl!.text = categoryLbl!.text! + assessment.category
         dateDueLbl!.text = dateDueLbl!.text! + dateFormatter.string(from: assessment.dateDue)
@@ -43,6 +49,7 @@ class AssessmentInfoViewController: UIViewController {
         self.view.subviews.forEach({($0 as? UILabel)?.sizeToFit()})
     }
     
+    //function to convert percentage grade to letter grade
     func letterGrade(grade: Float) -> String {
         if grade >= 95.0 { return "A+" }
         else if grade >= 87.0 { return "A" }
