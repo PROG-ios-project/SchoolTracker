@@ -41,6 +41,7 @@ class AddAssessmentViewController: UIViewController {
         self.nameField.delegate = self
         self.CategoryField.delegate = self
         
+        //Configure based on if the assessment is new or editing
         if isAssessmentEditing{
             self.nameField.text = assessment.name
             self.DateTimeDueField.date = assessment.dateDue
