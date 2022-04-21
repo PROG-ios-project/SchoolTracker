@@ -33,7 +33,7 @@ class SchoolDB
         
         //If statements as learned in class to open database connection, create and send query, and handle the results
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+          //  print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             //statement pointer and query string variables
             var queryStmt: OpaquePointer? = nil
@@ -76,7 +76,7 @@ class SchoolDB
         
         //database if statements
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+           // print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             //query pointer and string that includes a parameter to be added
             var queryStmt: OpaquePointer? = nil
@@ -118,7 +118,7 @@ class SchoolDB
         var db : OpaquePointer? = nil
         
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+           // print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             //query string gets all semesters, ordered by descending ID and limiting it to 1 so it only gets the most recently added
             var queryStmt: OpaquePointer? = nil
@@ -155,7 +155,7 @@ class SchoolDB
         var db: OpaquePointer? = nil
         
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+           // print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             
             var queryStmt: OpaquePointer? = nil
@@ -201,7 +201,7 @@ class SchoolDB
         var db : OpaquePointer? = nil
         
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+           // print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             //query string parameterized for foreign key semesterid, taken from semId passed through
             var queryStmt: OpaquePointer? = nil
@@ -244,7 +244,7 @@ class SchoolDB
         var db : OpaquePointer? = nil
         
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+           // print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             var queryStmt: OpaquePointer? = nil
             let queryStmtString : String = "select * from course where id = ?"
@@ -287,7 +287,7 @@ class SchoolDB
         var db : OpaquePointer? = nil
         
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+            //print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             //query string parameterized for courseid, which is a foreign key in assessment table that connects to id in course table.
             var queryStmt: OpaquePointer? = nil
@@ -357,7 +357,7 @@ class SchoolDB
         var db : OpaquePointer? = nil
         
         if sqlite3_open(mainDelegate.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
+            //print("Successfully opened connection to database at \(mainDelegate.databasePath!)")
             
             var queryStmt: OpaquePointer? = nil
             let queryStmtString : String = "select * from course where id = ?"

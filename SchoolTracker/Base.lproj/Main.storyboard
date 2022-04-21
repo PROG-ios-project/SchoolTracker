@@ -247,12 +247,20 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Pjy-ha-9Ez">
+                                <rect key="frame" x="197" y="358" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="agi-cY-Pae"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pjy-ha-9Ez" firstAttribute="centerX" secondItem="wj9-8T-BKj" secondAttribute="centerX" id="8fP-6m-Krk"/>
+                            <constraint firstItem="Pjy-ha-9Ez" firstAttribute="centerY" secondItem="wj9-8T-BKj" secondAttribute="centerY" id="Uj4-fi-I0X"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YT7-Um-LRf"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Pjy-ha-9Ez" id="kll-mU-IMZ"/>
                         <outlet property="webView" destination="7OS-Ac-JK2" id="nvi-5V-HHV"/>
                     </connections>
                 </viewController>
@@ -841,9 +849,7 @@
                         <viewLayoutGuide key="safeArea" id="Kkq-Iy-4TN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Assessment" id="Hpx-vw-Ap6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="lSS-Dj-l0k"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Assessment" id="Hpx-vw-Ap6"/>
                     <connections>
                         <outlet property="categoryLbl" destination="ZXD-pF-jf4" id="KI2-zd-ZTV"/>
                         <outlet property="dateDueLbl" destination="Bgc-xy-GKN" id="mjx-Uj-KdQ"/>

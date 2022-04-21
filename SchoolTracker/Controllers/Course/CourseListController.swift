@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  SchoolTracker
 //
-//  Created by Danyl Andriuschenko on 24.03.2022.
+//  Created by Danylo Andriuschenko on 24.03.2022.
 //  Controller that shows course list with search controller
 
 import UIKit
@@ -195,11 +195,14 @@ extension CourseListController: AddCourseDelegate{
         }
         else{
             _ = SchoolDB.shared.addCourse(course: course)
-            self.courses.append(course)
+            //self.courses.append(course)
         }
         
         //Automatically update grade if credits where changed
         updateCourseAndSemester(course: course)
+        
+        self.courses = SchoolDB.shared.getCourseList(semId: currentSemesterID)
+        
         tableView.reloadData()
     }
     

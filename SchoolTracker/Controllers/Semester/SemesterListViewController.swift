@@ -68,9 +68,9 @@ extension SemesterListViewController: UITableViewDelegate, UITableViewDataSource
 extension SemesterListViewController: SemesterAddDelegate
 {
     func willSaveSemester(semester: Semester) {
-        self.semesters.append(semester)
         SchoolDB.shared.addSemester(semester: semester)
         
+        semesters = SchoolDB.shared.getAllSemesters()
         self.tableView.reloadData()
     }
     

@@ -298,7 +298,7 @@ extension CourseInfoViewController: AddAssessmentDelegate{
         assessment.courseId = course.id
         
         if !isEditing{
-            self.assessments.append(assessment)
+            //self.assessments.append(assessment)
             _ = SchoolDB.shared.addAssessment(assessment: assessment)
         }
         else{
@@ -308,6 +308,8 @@ extension CourseInfoViewController: AddAssessmentDelegate{
         
      
         self.updateCourseAndSemester()
+        
+        self.assessments = SchoolDB.shared.getAssessmentList(courseId: course.id)
         self.tableView.reloadData()
         
     }
