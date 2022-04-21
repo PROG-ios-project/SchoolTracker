@@ -268,28 +268,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrl-gv-yB6">
-                                <rect key="frame" x="144" y="477" width="128" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrl-gv-yB6">
+                                <rect key="frame" x="143" y="477" width="128" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Zii-3Q-QMN"/>
+                                    <constraint firstAttribute="height" constant="31" id="zo2-13-QMO"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="GPA Calculation"/>
                                 <connections>
                                     <segue destination="Izj-Xi-csK" kind="show" id="WiE-vT-Ko7"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jDB-XH-Htp">
-                                <rect key="frame" x="88" y="137" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jDB-XH-Htp">
+                                <rect key="frame" x="87" y="137" width="240" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="LRm-Aa-cZU"/>
+                                    <constraint firstAttribute="height" constant="128" id="zI1-zR-q4e"/>
+                                </constraints>
                                 <string key="text">School Tracker is designed to help you keep track of your courses and assignments so you keep on top of your school work. It even archives previous semesters so that you can go back and look at the progress you've made.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="App made by Thomas Forber, Danylo Andriushchenko, and Lam Bich." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="co7-zw-ujc">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="App made by Thomas Forber, Danylo Andriushchenko, and Lam Bich." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="co7-zw-ujc">
                                 <rect key="frame" x="87" y="304" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="IfA-rq-1WD"/>
+                                    <constraint firstAttribute="width" constant="240" id="aeA-mz-8z3"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -297,6 +306,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FKX-po-7RY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jrl-gv-yB6" firstAttribute="centerX" secondItem="1Q7-Ir-5xc" secondAttribute="centerX" id="0rv-Up-hLf"/>
+                            <constraint firstItem="Jrl-gv-yB6" firstAttribute="top" secondItem="co7-zw-ujc" secondAttribute="bottom" constant="45" id="C26-oP-aQU"/>
+                            <constraint firstItem="jDB-XH-Htp" firstAttribute="top" secondItem="FKX-po-7RY" secondAttribute="top" constant="41" id="ZFr-RT-gXy"/>
+                            <constraint firstItem="co7-zw-ujc" firstAttribute="top" secondItem="jDB-XH-Htp" secondAttribute="bottom" constant="39" id="f2Q-Wu-4L2"/>
+                            <constraint firstItem="co7-zw-ujc" firstAttribute="centerX" secondItem="1Q7-Ir-5xc" secondAttribute="centerX" id="ghv-Bp-0Nt"/>
+                            <constraint firstItem="jDB-XH-Htp" firstAttribute="centerX" secondItem="1Q7-Ir-5xc" secondAttribute="centerX" id="scD-O7-xEk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="jXi-mR-qne"/>
                 </viewController>
