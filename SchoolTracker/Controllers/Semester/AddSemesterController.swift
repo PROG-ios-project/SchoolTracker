@@ -2,7 +2,7 @@
 //  AddSemesterController.swift
 //  SchoolTracker
 //
-//  Created by Danil Andriuschenko on 19.04.2022.
+//  Created by Danylo Andriuschenko on 19.04.2022.
 //  Controller that adds Semester to the list
 
 import Foundation
